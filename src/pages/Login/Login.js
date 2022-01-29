@@ -30,7 +30,7 @@ const Login = () => {
 
    
     return (
-        <div>
+        <div style={{ marginTop:"7%" }}>
             <h1>Bienvenido al Login </h1>
             <h2>Ingrese su email y contraseña:</h2>
             <input placeholder="Email" value={email} onChange={handleEmailChange} />

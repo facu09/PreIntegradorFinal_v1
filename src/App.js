@@ -15,16 +15,16 @@ function App() {
     <div className="App">
       {/* <header className="App-header"> */}
       {/* Aca podria usar dependiendo de Estados a traves de redux ==- mostrar diferentes NavBar */}
-      
+{/*       
       {loading && <div 
       style={{
         width:'100vw', height:'100vh', position: 'absolute', 
         backgroundColor: 'rgba(tr234,tr234,tr234,.4)' }}>
           Loading
-      </div>}  
+      </div>}   */}
 
       {/* <header className='App-header'> */}
-        {isError && <Toast message={message}/>}
+        {/* {isError && <Toast message={message}/>} */}
         <NavBar />
         <Router />
         <Footer />
