@@ -1,0 +1,72 @@
+/*  --------  FOOTER  ---------*/
+footer{
+    padding: 0px;
+    margin-top: 0px;
+    border: 0px;
+    width: 100%;
+    background-color: black;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteiner-linea1-footer{
+    margin: 0%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.container-rosario{
+    /* width: 40%; */
+    display:flex;
+    justify-content:flex-end;
+}
+
+/* .container-icons{
+    width: 40%; 
+}    
+*/
+
+.container-icons i {
+    color: white;
+    font-size: 2em;
+    margin: 0px 10px;
+}
+.icon-facebook{
+    margin-left: 140px;
+}
+.icon-facebook:hover{
+    color: #3b5998;
+    cursor: pointer;
+}
+
+.icon-twitter:hover{
+    color: #1da1f2;
+    cursor: pointer;
+}
+
+.icon-instagram:hover{
+    color: #5851db;
+    cursor: pointer;
+}
+
+
+footer2{
+    margin-top: 0px;
+    width: 100%;
+    background-color: black;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contenedor-Version{
+    width: 90%;
+    display: flex;
+    color:white;
+    justify-content: flex-end;
+    align-items: initial;
+}

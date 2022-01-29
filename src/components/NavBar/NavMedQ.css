@@ -1,0 +1,122 @@
+/*********************************/
+/***      MEDIA QUERIES        ***/
+
+/* para Navegadores PC pantallas pequeñas o restauradas */
+@media (min-width: 769px) and (max-width: 1224px) {
+    .encabezado{
+        height: 70px; 
+    }
+    .header{
+        min-height: 100vh;
+    }   
+    .logo{
+        /* width: 27%; */
+        width: 70px;
+    }
+    .ImagenLogo{
+         width: 70px; 
+    }
+    
+    .ElementoNav {
+        font-size: 1rem;
+    }    
+    .ElementoNav:hover{
+        font-size: 1.3rem;
+    }
+    .BtnLogin{
+        width: 4.7rem;
+        height: 1.98rem;
+        font-size: 0.93rem;
+    }
+}
+
+/* para Tablets Ipads  van de 455 a 768px*/
+@media (min-width: 455px) and (max-width:768px) {
+    .encabezado{
+        height:42px;
+    }
+    .header{
+        /* min-height: 55vh; */
+    }   
+    .logo{
+        height: 42px;
+        /* width: 20%; */
+    }
+    .ImagenLogo{
+        width: 42px; 
+   }
+   .ARefLogo{
+    width: 70px; 
+    /*2021-06-21: pruebo de meter el logo mas adentrol*/
+    /*margin-left: 10%;*/
+    margin-left:  20%;
+   }
+   .LiQuienesSomos::after {
+    content:".Somos";
+    }
+    .LiProdcutos::after {
+        content:"."
+    }
+    .liPedidos::after{
+        content: ".";
+    }
+    .ElementoNav  {
+        font-size: 0.85rem;
+    }    
+    .ElementoNav:hover{
+        font-size: 1.1rem;
+    }
+    .BtnLogin{
+        width: 4.4rem;
+        height: 1.98rem;
+        font-size: 0.8rem;
+        padding: 1px 2px 1px 2px; 
+    }
+}
+
+/* Para moviles */
+@media (min-width: 0px) and (max-width:454px) {
+   .encabezado{
+       height: 42px;
+   }
+    header{
+        /* min-height: 45vh; */
+    }   
+    .logo{
+        height: 42px;
+        /* width: 15%; */
+    }
+    .ImagenLogo{
+        width: 42px; 
+   }
+   .ARefLogo{
+    width: 90px; 
+    /*2021-06-21: pruebo de meter el logo mas adentrol*/
+    /*margin-left: 10%;*/
+    margin-left:  10%;
+   }
+    .ElementoNav {
+        font-size: 0.75rem;
+    }    
+    .ElementoNav:hover{
+        font-size: 0.80em;
+    }
+    .BtnLogin{
+        width: 3.3rem;
+        height: 1.50rem;
+        font-size: 0.70rem;
+        padding: 1px 2px 1px 2px; 
+    }
+    .LiQuienesSomos::after {
+        content:".S.";
+    }
+    .LiProdcutos::after {
+        content:"."
+    }
+    .liPedidos::after{
+        content: ".";
+    }
+
+ }
+
+ 

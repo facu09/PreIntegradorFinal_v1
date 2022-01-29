@@ -1,0 +1,23 @@
+/*************************************************************/
+/***                     MEDIA QUERIES                     ***/
+
+/* para Navegadores PC pantallas super grandes */
+@media (min-width: 1400px) and (max-width: 1920px) {
+    .sect-history {
+        /* margin-top: 10px; */
+        /* react modificacion */
+        margin-top: 500px;
+
+    }
+
+}
+
+/* para Navegadores PC pantallas pequeñas o restauradas */
+@media (min-width: 769px) and (max-width: 1224px) {
+    .sect-history {
+        /* margin-top: 10px; */
+        /* react modificacion */
+        margin-top: 400px;
+
+    }
+}
