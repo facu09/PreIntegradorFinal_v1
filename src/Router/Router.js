@@ -6,11 +6,14 @@ import Products from "../pages/Products/Products"
 import Lacteos from "../pages/Products/Lacteos"
 import Verduras from "../pages/Products/Verduras"
 import User from "../pages/User/User"
+import NavBar from "../components/NavBar/NavBar"
+import Footer from "../components/Footer/Footer"
 
 
 const Router = () => {
     return (
         <BrowserRouter>
+            <NavBar />
             <Routes>
                 <Route path='/home' element={<Home />}/>
                 <Route path='/login' element={<Login />}/>
@@ -25,6 +28,7 @@ const Router = () => {
                 </Route>
                 <Route path='*' element={<Home />} />
             </Routes>
+            <Footer />
         </BrowserRouter>
     )
 }

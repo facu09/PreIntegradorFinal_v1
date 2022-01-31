@@ -1,4 +1,3 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import './NavBar.css';  // vinculo estilos
 import './NavMedQ.css'  // estilos en cascadas propios
@@ -7,6 +6,8 @@ import '../../fontawesome/fontawesome-free-5.15.3-web/css/all.css'; //para poder
 import logoKiwi from '../../Imagenes/LogoKiwi.jpg';
 
 import { useState } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+
 
 
 // ME LO LLEVO PARA LA HOME :)
@@ -22,25 +23,44 @@ let lsLblBotonLogInOut = ""
 //-------------------------------- Funcion que devuelve el DIV del componente -------------------------//
 const NavBar = () => {
 
-    // alert('antes de DELCLARAR navigate');
-    // // dentro de procedimiento principal TIENE QUE ESTAR LA DECLARACIÓN DEL NAVIGATE
+    // const [lsLblUsMostrar, setLsLblUsMostrar] = useState('');
+    // const [lsLblBotonLogInOut, setLsLblBotonLogInOut] = useState('');
+    const [usMostrar, setUsMostrar] = useState("( - )");
+    const [btnLogInOut, setBtnLogInOut] = useState("Login");
+
+    // setUsMostrar('');
+    // setBtnLogInOut('');
+
+    // alert('antes de DELCLARAR navigate'); 
+    // dentro de procedimiento principal TIENE QUE ESTAR LA DECLARACIÓN DEL NAVIGATE
    
     // ATENCIÓN CUANDO PONGO ESTA SENTENCIA DE DECLARACIÓN SE ROMPE LA RENDERIZACION DE TODO
-    // const navigate = useNavigate();
+    const navigate = useNavigate()
     // alert('paso LA DECLARACIÓN DE NAVIGATE navigate');
+
+    //recupero el token (si esta bien logueado lo traerá)
+    lsToken = localStorage.getItem('token');  
 
     //Si tengo Token (es que esta logueado el usuario)
     if ((lsToken) && !(lsToken === 'undefined')) {
-
+        alert("Tiene token")
             // --> Pongo el mail del usuario y el boton de 'Logout'
         lsEmail = localStorage.getItem('emailUsuario');
 
         if (lsEmail) {
-            lsLblUsMostrar = "(" + lsEmail + ")"
-            lsLblBotonLogInOut = "Logout"   //seteo el botón 'Login/Logout' para que se deslogue
+
+            lsLblUsMostrar = "(" + lsEmail + ")";
+            lsLblBotonLogInOut = "Logout";  //seteo el botón 'Login/Logout' para que se deslogue
+            setUsMostrar(lsLblUsMostrar);
+            setBtnLogInOut(lsLblBotonLogInOut);
+
+            // setLsLblUsMostrar("(" + lsEmail + ")")
+            // setLsLblBotonLogInOut("Logout")
         }  else {
             lsLblUsMostrar = "( - )"
             lsLblBotonLogInOut = "Login" //cambio botón 'Login/Logout' para que se logue
+            setUsMostrar(lsLblUsMostrar);
+            setBtnLogInOut(lsLblBotonLogInOut);
 
             //IMPORTANTE APRENDIZAJE: // No se usa el .innerHTML  --> 
             //  se usa en el return del HTML las {} :  
@@ -51,9 +71,14 @@ const NavBar = () => {
         }
         
     } else {
+        alert ("No tiene token, los datos actuales del lsLblUsMostrar es: " + lsLblUsMostrar + "y el estado usMostrar es: " + usMostrar )
         //Sino está logueado saco el usuario y pongo botón 'Login'
-        lsLblUsMostrar = "( - )"
-        lsLblBotonLogInOut = "Login" //cambio botón 'Login/Logout' para que se logue
+        if ( usMostrar !== "( - )" ) {
+            lsLblUsMostrar = "( - )";
+            lsLblBotonLogInOut = "Login";
+            setUsMostrar(lsLblUsMostrar);
+            setBtnLogInOut(lsLblBotonLogInOut);
+        }
     }
 
     //Evento Click en el 'lblUsuario'
@@ -84,8 +109,8 @@ const NavBar = () => {
             //Esta del botón --> 'Logout'
             alert ("Entro al Logout ueeee");
             //Deslogueo al usuario 
-            // localStorage.setItem('token', undefined);
-            // localStorage.setItem('emailUsuario', "");
+            localStorage.setItem('token', undefined);
+            localStorage.setItem('emailUsuario', "");
             //Seteo variables a ser mostradas en el HTML - Front End
             lsLblUsMostrar = "( - )"
             lsLblBotonLogInOut = "Login" //cambio botón 'Login/Logout' para que se logue
@@ -126,13 +151,15 @@ const NavBar = () => {
                             <a href="/home#Pedidos" class="liPedidos">Ped</a>
                         </li>
                         <li class="ElementoNav"><a href="/home#Contacto">Contacto</a></li>
-                        <li class="ElementoNav" id="lblUsuario" onClick={onClickLblUsuario}>{lsLblUsMostrar}</li>
+                        {/* <li class="ElementoNav" id="lblUsuario" onClick={onClickLblUsuario}>{usMostrar}</li> */}
+                        <li class="ElementoNav" id="lblUsuario" onClick={onClickLblUsuario}>{usMostrar}</li>
                         {/* <li class="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li> */}
 
                         {/* <!-- <li><a href="login.html">
                         <button id="btnLogin" class="BtnLogin" >Login</button></a></li> --> */}
                         {/* <!-- El login lo paso a manejar por el evento click del boton dentro del javascript 'index.js' --> */}
-                        <li><button id="btnLogin" class="BtnLogin" onClick={onClickLoginLogout}> {lsLblBotonLogInOut}</button></li> 
+                        <li><button id="btnLogin" class="BtnLogin" onClick={onClickLoginLogout}> {btnLogInOut}</button></li> 
+                        {/* <li><button id="btnLogin" class="BtnLogin" onClick={onClickLoginLogout}> {btnLogInOut}</button></li>  */}
                         {/* onClick={() => navigate('/home')} */}
                     </ul>
                 </nav> 

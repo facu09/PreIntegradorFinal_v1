@@ -1,0 +1,214 @@
+* {
+    /* padding: 0px;
+    margin: 0px; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif , cursive;
+}
+
+body {
+    background-color: #0E0E0E;
+    background-color: rgb(93, 155, 60);
+    margin:0;
+    padding: 0;
+}
+
+.Portada_Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* pruebas de width y height*/
+    /* width: 100%;
+    height: 100%; */
+    margin-top: 7%;
+    /* pruebo color de fondo*/
+    /* background-color: red; */
+    /* opacity: 0.90; */
+}
+
+.Card_Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    /* saco el height para que tome hasta el final */
+    /* height: 60%; */ 
+    padding: 1%;
+    /* border: solid;
+    border-color:gray; */
+    /* background-color: rgba(79, 84, 73, 0.5);
+    background-color: rgba(119, 83, 57, 0.5); */
+    background-color: rgba(119, 83, 57, 0.9);
+    border-radius:20px;
+    /* color: green; */
+    box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
+    margin-bottom: 1.5rem;
+}
+
+.ImagenUsuario{
+    margin: 0px
+}
+.ImagenUsuario img{
+    width: 120px;
+    height: 120px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.IniciarSesion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    margin-bottom: 0px;
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* .IniciarSesion p{
+    margin-top: 0px;
+    margin-bottom: 1px;
+    color:rgb(172, 174, 172);
+    color:rgb(192, 147, 158);
+    color: white;
+    font-weight: bold;
+    font-size:1.8rem;
+} */
+
+.Etiquetas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:0px;
+    margin-bottom: 0px;
+    height: 3.3rem;
+    width: 80%;
+    /* font-family: sans-serif;
+    border-style: hidden; */
+    /* border-color: grey; */
+    /* border-radius: 10px;
+    border:solid; */
+}
+.CamposEntrada{
+    /* width: 300px; */
+    width: 99%;
+    /* height: 70px; */
+    height: 2.7rem;
+    margin-top:1.1em;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-color:rgb(195, 194, 194);
+    border-radius: 0px;
+    /* font-family: Verdana, Tahoma, Geneva, sans-serif; */
+    font-size: 1rem;
+    color:rgb(44, 44, 44);
+}
+
+.CampoEntradaPass{
+    font-weight:bolder;
+}
+.pError{
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0rem;
+}
+.pToken{
+    margin-top: 0rem;
+    font-size: 1rem;
+    margin-bottom: 0rem;
+}
+
+input::placeholder {
+    /* color:rgb(175, 175, 175); */
+    color:rgb(107, 104, 104);
+    font-size: 0.94rem;
+    font-style: italic;
+  }
+
+.AHref_submit{
+    width: 90%;
+    /* height: 13rem ; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+.Submit{
+    width: 100%;
+    height: 2rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    /* background-color: rgb(7, 27, 82);
+    border-color: rgb(58, 80, 141); */
+    /* font-family: Tahoma, Geneva,  sans-serif; */
+    font-size: 1.1rem; 
+    font-weight:400;
+    align-items: center;
+    border-radius: 60px;
+    /* color:rgb(47, 47, 47);
+    color:rgb(88, 61, 42);   */
+    color:rgb(51, 36, 25); 
+    border-color: rgb(153, 153, 153);
+    /* background-color: rgba(248, 255, 239, 0.5);
+    background-color: rgb(185, 255, 147); */
+    background-color: rgb(134, 170, 115);
+}
+.Submit:hover{
+    cursor:pointer;
+    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(169, 216, 144); */
+    color:white;
+}
+
+.CancelarBtn{
+    width: 100%;
+    height: 2rem;
+    margin-top: 0rem;
+    margin-bottom: 0px;
+    padding-top: 3px;
+    font-size: 0.90rem; 
+    font-style: normal;
+    font-weight: 600;
+    /* color: rgb(47, 47, 47); */
+    color:rgb(51, 36, 25); 
+    align-items: center;
+    border-radius:60px;
+    /* border-color:rgb(151, 158, 147);  
+    background-color: rgba(248, 255, 239, 0.5); */
+    background-color: rgb(134, 170, 115);
+}
+
+.CancelarBtn:hover{
+    /* font-size: 1.1em; */  /*se agranda el card*/
+    cursor: pointer;
+    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(169, 216, 144); */
+    color:white;
+}
+
+.OlvidePass{
+    width: 90%;
+    height: 2rem;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    background-color:white;
+    /* font-family: Tahoma, Geneva,  sans-serif; */
+    font-size: 0.90rem; 
+    font-style: normal;
+    font-weight: 600;
+    /* color: rgb(47, 47, 47); */
+    color:rgb(51, 36, 25); 
+    align-items: center;
+    border-radius:60px;
+    /* border-color:rgb(151, 158, 147);  
+    background-color: rgba(248, 255, 239, 0.5); */
+    background-color: rgb(134, 170, 115);
+}
+.OlvidePass:hover{
+    /* font-size: 1.1em; */  /*se agranda el card*/
+    cursor: pointer;
+    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(169, 216, 144); */
+    color:white;
+}

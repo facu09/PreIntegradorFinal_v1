@@ -30,10 +30,16 @@ const useFetch = ({ service, onSuccess = () => {}, globalLoader }) => {
             const response = await service();
             if (response.status === 200) {
                 setData(response.data)
+                //# 29/01/22: agrego para actualizar el Error por si ahora SI HA pegando bien
+                setError(null)
                 onSuccess();
             } else {
                 dispatch(setErrorAction({message: response.data.error}));
+                //# 29/01/22: agrego para actualizar el token por si ahora NO HA pegando bien
+                setData(null);
                 setError(response.data.error);
+               
+            
             }
             setLoading(false)
         } catch (error){

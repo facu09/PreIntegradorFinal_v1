@@ -25,9 +25,11 @@ function App() {
 
       {/* <header className='App-header'> */}
         {/* {isError && <Toast message={message}/>} */}
-        <NavBar />
+        {/* Mando el componente NavBar dentro del BrowserRoute del componente Router.js para poder usar en Navigate('ruta')*/}
+        {/* <NavBar /> */} 
         <Router />
-        <Footer />
+         {/* Mando el componente Footer dentro del BrowserRoute del componente Router.js */}
+        {/* <Footer /> */}
         
       {/* </header>   */}
      
