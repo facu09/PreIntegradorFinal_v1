@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import './App.css';   //css 
 // importo componentes
 import Toast from './components/Toast/Toast'
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
+// import NavBar from './components/NavBar/NavBar';
+// import Footer from './components/Footer/Footer';
 import Router from './Router/Router';
 
 function App() {
@@ -27,31 +27,16 @@ function App() {
         {/* {isError && <Toast message={message}/>} */}
         {/* Mando el componente NavBar dentro del BrowserRoute del componente Router.js para poder usar en Navigate('ruta')*/}
         {/* <NavBar /> */} 
+      
         <Router />
+       
          {/* Mando el componente Footer dentro del BrowserRoute del componente Router.js */}
         {/* <Footer /> */}
         
       {/* </header>   */}
-     
         {/* El componente Login lo va a cargar la pagina a traves del router */}
         {/* de la clase agregada de Juli */}
         {/* <Login /> */}
-        
-        {/* Codigo original de React: --> Falta Borrarlo!! lo dejo de ejemplo */}
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload. 
-          And tendria que mostrarse en pantalla.
-        </p> */}
-      
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
       {/* </header> */}
     </div>
   );

@@ -1,3 +1,6 @@
+
+ alert ("Componenete Register: 0 - Ejecución Previa del Register.js");
+
 const Register = () => {
     return (
         <div style={{ marginTop:"7%" }} >

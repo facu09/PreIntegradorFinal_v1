@@ -4,30 +4,31 @@ import '../../fontawesome/fontawesome-free-5.15.3-web/css/all.css'; //para poder
 const Footer = () => {
   return   <div>
     <footer>
-      <div class= "conteiner-linea1-footer">
-          {/* <div class= "container-rosario">
+      <div className= "conteiner-linea1-footer">
+          {/* <div className= "container-rosario">
               <a href="https://www.rosario.gob.ar/web/" target="_blank">
-                  <img class="fab MuniRos" src="/imagenes/RosarioLogo.png" alt="Logo Municipalidad de Rosario" >
+                  <img className="fab MuniRos" src="/imagenes/RosarioLogo.png" alt="Logo Municipalidad de Rosario" >
               </a>
           </div>  */}
 
-          <div class="container-icons">
+          <div className="container-icons">
               <a href="https://www.facebook.com/kiwihelado/" target="_blank">
-                  <i class="fab fa-facebook icon-facebook"></i></a>
+                  <i className="fab fa-facebook icon-facebook"></i></a>
               <a href="https://twitter.com/kiwihelados" target="_blank">
-                  <i class="fab fa-twitter icon-twitter"></i></a>
+                  <i className="fab fa-twitter icon-twitter"></i></a>
               <a href="https://www.instagram.com/kiwi.helados/" target="_blank">
-                  <i class="fab fa-instagram icon-instagram"></i></a>
+                  <i className="fab fa-instagram icon-instagram"></i></a>
           </div>
       </div>
        {/* <!-- segunda linea del footer --> */}
-      {/* <!-- <div class="Contenedor-Version">ver 1.5</div> --> */}
+      {/* <!-- <div className="Contenedor-Version">ver 1.5</div> --> */}
+      <div className="conteiner-linea1-footer Contenedor-Version">ver 1.12</div>
   </footer>
 
-  <footer2>
-         {/* <!-- segunda linea del footer --> */}
-        <div class="Contenedor-Version">ver 1.12</div>
-   </footer2>
+  {/* <!-- segunda linea del footer --> */}
+  {/* <footer2>     
+        <div className="Contenedor-Version">ver 1.12</div>
+  </footer2> */}
 
 
     {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    */}

@@ -75,7 +75,7 @@ const NavBar = () => {
 
             //IMPORTANTE APRENDIZAJE: // No se usa el .innerHTML  --> 
             //  se usa en el return del HTML las {} :  
-            //        <li class="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li>
+            //        <li className="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li>
             // El innerHTML es para html vanilla
             // lblUsuario.innerHTML = "(-)";
             // btnLogin.innerHTML = "Login";
@@ -121,46 +121,46 @@ const NavBar = () => {
     return (
         <div>
             <header>
-            <div class="encabezado">
-                <div class="logo">
-                    <a class="ARefLogo" href="/home#Inicio">
+            <div className="encabezado">
+                <div className="logo">
+                    <a className="ARefLogo" href="/home#Inicio">
                            {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                        <img class="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
-                        {/* <img class="ImagenLogo" src={'../../Imagenes/LogoKiwi.jpg'} alt="LogoKiwi"/>     */}
+                        <img className="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
+                        {/* <img className="ImagenLogo" src={'../../Imagenes/LogoKiwi.jpg'} alt="LogoKiwi"/>     */}
                     </a>
-                    <div class="LogoOpacidad"></div>
+                    <div className="LogoOpacidad"></div>
                 </div>
                 
-                <nav class="NavBar">
-                    <ul class="ListaElementos">
-                        <li class="ElementoNav">
+                <nav className="NavBar">
+                    <ul className="ListaElementos">
+                        <li className="ElementoNav">
                             <a href="/home#Inicio">Inicio</a>
                         </li>
-                        <li class="ElementoNav">
-                            <a href="/home#QuienesSomos" class="LiQuienesSomos">Q</a>
+                        <li className="ElementoNav">
+                            <a href="/home#QuienesSomos" className="LiQuienesSomos">Q</a>
                         </li>
-                        <li class="ElementoNav"> 
-                            {/* <!-- <a href="#Productos" class="LiProdcutos">Prod</a> --> */}
-                            <a href="/products" class="LiProdcutos">Prod</a>
+                        <li className="ElementoNav"> 
+                            {/* <!-- <a href="#Productos" className="LiProdcutos">Prod</a> --> */}
+                            <a href="/products" className="LiProdcutos">Prod</a>
                         </li>
-                        <li class="ElementoNav">
-                            <a href="/home#Pedidos" class="liPedidos">Ped</a>
+                        <li className="ElementoNav">
+                            <a href="/home#Pedidos" className="liPedidos">Ped</a>
                         </li>
-                        <li class="ElementoNav"><a href="/home#Contacto">Contacto</a></li>
-                        <li class="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li>
+                        <li className="ElementoNav"><a href="/home#Contacto">Contacto</a></li>
+                        <li className="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li>
 
                         {/* <!-- <li><a href="login.html">
-                        <button id="btnLogin" class="BtnLogin" >Login</button></a></li> --> */}
+                        <button id="btnLogin" className="BtnLogin" >Login</button></a></li> --> */}
                         {/* <!-- El login lo paso a manejar por el evento click del boton dentro del javascript 'index.js' --> */}
-                        <li><button id="btnLogin" class="BtnLogin" > {lsLblBotonLogInOut}</button></li> 
+                        <li><button id="btnLogin" className="BtnLogin" > {lsLblBotonLogInOut}</button></li> 
                         {/* onClick={() => navigate('/home')} */}
                     </ul>
                 </nav> 
             </div>
-            {/* <div class="Portada" id="Inicio">
-                <div class="portada-opacidad"></div> */}
-                    {/* <h1 class="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1> 
-                    <h1 class="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1> */}
+            {/* <div className="Portada" id="Inicio">
+                <div className="portada-opacidad"></div> */}
+                    {/* <h1 className="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1> 
+                    <h1 className="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1> */}
             {/* </div> */}
             </header>
         </div>

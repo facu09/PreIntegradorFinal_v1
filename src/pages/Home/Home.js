@@ -22,29 +22,29 @@ const Home = () => {
    
     return (
         // ** Devuelve 1 solo DIV ---------------------------------------------------------------
-        <div class= "DivHome">
-            <div class="Portada" id="Inicio">
-                <div class="portada-opacidad"></div>
-                {/* <h1 class="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1>  */}
-                {/* <h1 class="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1>  */}
+        <div className= "DivHome">
+            <div className="Portada" id="Inicio">
+                <div className="portada-opacidad"></div>
+                {/* <h1 className="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1>  */}
+                {/* <h1 className="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1>  */}
             </div>
 
             {/* //Main con el cuerpo de la HOME ---------------------------------------------------- */}
             <main>
-                <section class="sect-history" id="QuienesSomos">
-                    <div class="card-history">
-                        <h2 class="TitleCard">Historia</h2>
-                        <p class="history">Nico, ipsum dolor sit amet consectetur adipisicing elit. Libero, cupiditate laborum placeat
+                <section className="sect-history" id="QuienesSomos">
+                    <div className="card-history">
+                        <h2 className="TitleCard">Historia</h2>
+                        <p className="history">Nico, ipsum dolor sit amet consectetur adipisicing elit. Libero, cupiditate laborum placeat
                         provident nam in expedita sed qui quidem, corrupti corporis quis quas fuga accusamus nesciunt
                         voluptatum veritatis iusto eius Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam vero
                         quisquam ipsam perspiciatis. 
                         Consequuntur dignissimos perferendis reprehenderit corrupti consequatur, autem neque natus eum, optio eligendi saepe architecto eos, cupiditate incidunt! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt neque labore aperiam blanditiis rem quidem iusto fugiat repellendus sapiente ab distinctio esse reiciendis, deleniti ex velit ipsa perspiciatis voluptates veritatis!
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptates quisquam est recusandae cum, odio beatae quod obcaecati, suscipit repudiandae error earum, atque blanditiis ipsa et delectus? Ipsum, ut beatae?
                         </p>
-                        <div class="VerMasHist" >
+                        <div className="VerMasHist" >
                         <p>leer mas... <br></br> </p> 
                     </div>
-                        {/* <!-- <p class="segundo-parrafo-history">
+                        {/* <!-- <p className="segundo-parrafo-history">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, at? Minus vel magnam asperiores,
                             deserunt delectus maiores nulla reiciendis in autem, nemo recusandae reprehenderit molestiae quis
                             eaque sit quae neque.
@@ -58,9 +58,9 @@ const Home = () => {
                     </div>
                 </section>
             
-                <section class="SeccionProductos" id="Productos">
-                    <div class="CardProductos">
-                        <h2 class= "TitleCard">Nuestros Productos</h2>
+                <section className="SeccionProductos" id="Productos">
+                    <div className="CardProductos">
+                        <h2 className= "TitleCard">Nuestros Productos</h2>
                         
                         {/* Para meter bootstrap en react tengo que instalarlo:
                             npm install react-bootstrap bootstrap
@@ -76,7 +76,7 @@ const Home = () => {
                             className="d-block w-70 ImgCarru Img1"
                             // src="holder.js/800x400?text=First slide&bg=373940"
                             src={imgChocoHelado} 
-                            // <img class="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
+                            // <img className="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
                             alt="First slide"
                             />
                             <Carousel.Caption>
@@ -112,39 +112,39 @@ const Home = () => {
 
 
                         {/* Viejo de bootstrap de vanilla ----------------------*/}
-                        {/* <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="./Imagenes/Kiwi_ChocoHelado.jpg" class="d-block  ImgCarru Img1" alt="Bombon Chocolate"/>
+                        {/* <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                            <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <img src="./Imagenes/Kiwi_ChocoHelado.jpg" className="d-block  ImgCarru Img1" alt="Bombon Chocolate"/>
                             </div>
-                            <div class="carousel-item">
-                                <img src={"./Imagenes/Kiwi_Torta1.jpg"} class="d-block ImgCarru Img1" alt="Torata Helada Kiwi"/>
+                            <div className="carousel-item">
+                                <img src={"./Imagenes/Kiwi_Torta1.jpg"} className="d-block ImgCarru Img1" alt="Torata Helada Kiwi"/>
                             </div>
-                            <div class="carousel-item">
-                                <img src="./Imagenes/Kiwi_bombon1.jpg" class="d-block ImgCarru Img3" alt="Torata Helada Kiwi"/>
+                            <div className="carousel-item">
+                                <img src="./Imagenes/Kiwi_bombon1.jpg" className="d-block ImgCarru Img3" alt="Torata Helada Kiwi"/>
                             </div>
-                            <div class="carousel-item">
-                                <img src="./Imagenes/KiwiPromo1.jpg" class="d-block ImgCarru Img1" alt="Torata Helada Kiwi"/>
+                            <div className="carousel-item">
+                                <img src="./Imagenes/KiwiPromo1.jpg" className="d-block ImgCarru Img1" alt="Torata Helada Kiwi"/>
                             </div>
-                            <div class="carousel-item">
-                                <img src="./Imagenes/Delivery1.jpg" class="d-block  ImgCarru Img2" alt="Delivery"/>
+                            <div className="carousel-item">
+                                <img src="./Imagenes/Delivery1.jpg" className="d-block  ImgCarru Img2" alt="Delivery"/>
                             </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
                             </button>
                         </div> */}
                     </div>
                 </section>
 
-                <section class="SeccionPedidos" id="Pedidos">
-                    <div class="CardPedidos">
-                        <h2 class= "TitleCard">Pedidos</h2>
+                <section className="SeccionPedidos" id="Pedidos">
+                    <div className="CardPedidos">
+                        <h2 className= "TitleCard">Pedidos</h2>
                     
                         <Carousel fade>
                         <Carousel.Item>
@@ -152,7 +152,7 @@ const Home = () => {
                             className="d-block w-70 ImgCarru Img1_Dely"
                             // src="holder.js/800x400?text=First slide&bg=373940"
                             src={imgDelivery2} 
-                            // <img class="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
+                            // <img className="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
                             alt="First slide"
                             />
                             <Carousel.Caption>
@@ -189,24 +189,24 @@ const Home = () => {
                     </div>
                 </section>
       
-                <section class="SeccContacto" id="Contacto">
-                    <div class="CardContacto">
-                        <h2 class ="TitleCard">Contacto</h2>
-                        <form class = "FormContacto" action="">
-                            <div class="container-input">
-                                <label for="nombre">Nombre:</label>
+                <section className="SeccContacto" id="Contacto">
+                    <div className="CardContacto">
+                        <h2 className="TitleCard">Contacto</h2>
+                        <form className= "FormContacto" action="">
+                            <div className="container-input">
+                                <label htmlFor="nombre">Nombre:</label>
                                 <input type="text" name="nombre" placeholder="Ingrese su nombre"/>
                             </div>
-                            <div class="container-input">
-                                <label for="email">Email:</label>
+                            <div className="container-input">
+                                <label htmlFor="email">Email:</label>
                                 <input type="email" name="email" placeholder="Ingrese su email"/>
                             </div>
-                            <div class="container-input">
-                                <label for="mensaje">Mensaje:</label>
+                            <div className="container-input">
+                                <label htmlFor="mensaje">Mensaje:</label>
                                 <textarea type="mensaje" placeholder="Ingrese su mensaje"></textarea>
                             </div>
-                            <div class="container-btn">
-                                <button class ="BtnEnviar" tabindex="0" accesskey="E"><ins>E</ins>nviar</button>
+                            <div className="container-btn">
+                                <button className="BtnEnviar" tabIndex="0" accessKey="E"><ins>E</ins>nviar</button>
                             </div>
                         </form>
                     </div>

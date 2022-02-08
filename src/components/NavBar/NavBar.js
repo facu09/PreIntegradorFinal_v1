@@ -1,4 +1,3 @@
-
 import './NavBar.css';  // vinculo estilos
 import './NavMedQ.css'  // estilos en cascadas propios
 import '../../fontawesome/fontawesome-free-5.15.3-web/css/all.css'; //para poder usar estilos de Fontawesome
@@ -19,81 +18,69 @@ let lsEmail = "facu";
 let lsLblUsMostrar = ""
 let lsLblBotonLogInOut = ""
 
+//Esto se ejecuta una sola vez al principio que carga el componente.
+// alert ("Componente NavBar 0:  previo al entrar al componente")
+console.log ("Componente NavBar 0:  previo al entrar al componente")
+
+//aca no puedo definir hooks, los estads y useEffect se definen dentro de la funcion del componente const NavBar = () => {}
 
 //-------------------------------- Funcion que devuelve el DIV del componente -------------------------//
 const NavBar = () => {
-
-    // const [lsLblUsMostrar, setLsLblUsMostrar] = useState('');
-    // const [lsLblBotonLogInOut, setLsLblBotonLogInOut] = useState('');
-    const [usMostrar, setUsMostrar] = useState("( - )");
-    const [btnLogInOut, setBtnLogInOut] = useState("Login");
-
-    // setUsMostrar('');
-    // setBtnLogInOut('');
-
-    // alert('antes de DELCLARAR navigate'); 
-    // dentro de procedimiento principal TIENE QUE ESTAR LA DECLARACIÓN DEL NAVIGATE
-   
-    // ATENCIÓN CUANDO PONGO ESTA SENTENCIA DE DECLARACIÓN SE ROMPE LA RENDERIZACION DE TODO
-    const navigate = useNavigate()
-    // alert('paso LA DECLARACIÓN DE NAVIGATE navigate');
-
-    //recupero el token (si esta bien logueado lo traerá)
+    alert ("Componente NavBar 1: Inicio Ejecución interior del componente NavBar = ()")
+    
+    //Al manejar estados: todo lo que está aca se va a ejecutar cada vez que cambia un useState o hook    
+    
+    //recupero valores del storage primero
+    lsEmail = localStorage.getItem('emailUsuario');
     lsToken = localStorage.getItem('token');  
-
-    //Si tengo Token (es que esta logueado el usuario)
+    //Armo varibles para que se van a mostrar en el NavBar
     if ((lsToken) && !(lsToken === 'undefined')) {
-        alert("Tiene token")
-            // --> Pongo el mail del usuario y el boton de 'Logout'
-        lsEmail = localStorage.getItem('emailUsuario');
-
+        alert("NavBar: 1- Tiene token y es: " + lsToken)
+        console.log ("NavBar: 1- Tiene token y es: " + lsToken)
+        // --> Pongo el mail del usuario y el boton de 'Logout'
         if (lsEmail) {
-
             lsLblUsMostrar = "(" + lsEmail + ")";
             lsLblBotonLogInOut = "Logout";  //seteo el botón 'Login/Logout' para que se deslogue
-            setUsMostrar(lsLblUsMostrar);
-            setBtnLogInOut(lsLblBotonLogInOut);
-
-            // setLsLblUsMostrar("(" + lsEmail + ")")
-            // setLsLblBotonLogInOut("Logout")
-        }  else {
-            lsLblUsMostrar = "( - )"
-            lsLblBotonLogInOut = "Login" //cambio botón 'Login/Logout' para que se logue
-            setUsMostrar(lsLblUsMostrar);
-            setBtnLogInOut(lsLblBotonLogInOut);
-
-            //IMPORTANTE APRENDIZAJE: // No se usa el .innerHTML  --> 
-            //  se usa en el return del HTML las {} :  
-            //        <li class="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li>
-            // El innerHTML no muestra nada rompe el html (no se porque)
-            // lblUsuario.innerHTML = "(-)";
-            // btnLogin.innerHTML = "Login";
+        } else {
+            lsLblUsMostrar = "(" + lsEmail + ")";
+            lsLblBotonLogInOut = "Logout";  //seteo el botón 'Login/Logout' para que se deslogue
         }
-        
     } else {
-        alert ("No tiene token, los datos actuales del lsLblUsMostrar es: " + lsLblUsMostrar + "y el estado usMostrar es: " + usMostrar )
-        //Sino está logueado saco el usuario y pongo botón 'Login'
-        if ( usMostrar !== "( - )" ) {
-            lsLblUsMostrar = "( - )";
-            lsLblBotonLogInOut = "Login";
-            setUsMostrar(lsLblUsMostrar);
-            setBtnLogInOut(lsLblBotonLogInOut);
-        }
+        alert("NavBar: 1- NO tiene token")
+        console.log("NavBar: 1- NO tiene token")
+        lsLblUsMostrar = "( - )"
+        lsLblBotonLogInOut = "Login" //cambio botón 'Login/Logout' para que se logue
     }
+
+    // DEFINO LOS ESTADOS YA CON LOS VALORES DEL STORAGE (Recién recuperados --> si cambio el storage los va  a pintar en el HTML)
+    const [usMostrar, setUsMostrar] = useState(lsLblUsMostrar);
+    const [btnLogInOut, setBtnLogInOut] = useState(lsLblBotonLogInOut);
+        //** recordar que por cada uno de estas actulizacines de estado si cambio arranca de arriba, updatea el componente
+        //**            y arranca otra vez desde NavBar = () => { */
+  
+    //Aprendizaje: para usar este navigate: este componente NavBar.js tiene que estar dentro del  <BrowserRouter>
+    const navigate = useNavigate() //definicion para poder usar navigate
+    // alert('paso LA DECLARACIÓN DE NAVIGATE navigate');
 
     //Evento Click en el 'lblUsuario'
     const onClickLblUsuario = () => {
-        alert ("entro en el onClick del Lbl de Usuario: como no uso el Navigate, sino el window.location.replace --> recarga la pagina.");
-        window.location.replace("/User");  //deberi usar el navigate
-
-         // navigate('/user');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
+        // alert ("NavBar: A- Entro en el onClick del Lbl de Usuario: como uso el Navigate --> No recarga la pagina, sino el window.location.replace --> recarga la pagina.");
+        
+        if (lsLblUsMostrar !== "( - )" ) {
+            // window.location.replace("/User");  //deberia usar el navigate para que no recargue la pagina en el navegador
+            navigate('/user');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
+        } else {
+            alert ("No hay usuario logueado para ir ver los datos del mismo! \nLoguese primero para acceder a los datos del usuario.")
+        }
     }
 
     //Evento Click en 'Login/Logout'
     const onClickLoginLogout = () => {
-        alert("Entro al onClickLoginLogout");
+        // alert("Entro al onClickLoginLogout y el lsLblBotonLogInOut es: " + lsLblBotonLogInOut);
+        alert("NavBar: B- Entro al onClickLoginLogout y el usMostrar es: '" + lsLblUsMostrar + "'");
          if (lsLblBotonLogInOut === 'Login') {
-             alert ("Entro al Login ehhhh PERO COMO USO EL Window.location.replace --> recarga lapagina --> mira arriba...");
+        // if (btnLogInOut === 'Login') {
+             alert ("Entro al Login ehhhh PERO COMO AHORA USO el 'navigate('/login') --> NO RECARGA LA PAGINA. En cambio ' EL Window.location.replace --> recarga lapagina --> mirá arriba...!!!")
             
             //Aca habria que ver el tema de las rutas // VIDEO-CLASE de Rute y New Rute --> 14/Oct/21
             //window.location.replace("./pages/Login/login.html")
@@ -102,12 +89,13 @@ const NavBar = () => {
             // navigate('/login');   --> PERO NO ANDA, CUANDO DECLARO ARRIBA const navigate = useNavigate(); ==>
             //                              ==> se rompe y no renderiza queda en pantalla verde
 
-            //AHORA SI USO el Window.location.replace funciona
-            window.location.replace("./login")
+            //AHORA SI USO el Window.location.replace funciona pero recarga la pagina
+            // window.location.replace("./login")
+            navigate('/login')
 
         } else {
-            //Esta del botón --> 'Logout'
-            alert ("Entro al Logout ueeee");
+            //Está en botón --> 'Logout'
+            alert ("NavBar: Entro al Logout --> se va a desloguear: borro el local storage el 'token' y el 'emailUsuario'");
             //Deslogueo al usuario 
             localStorage.setItem('token', undefined);
             localStorage.setItem('emailUsuario', "");
@@ -117,57 +105,77 @@ const NavBar = () => {
             // IMPORTANTE: Esto asi no anda --> deberia usar un UseEffect  --> repasa VIDEO-CLASE --> 
             // lblUsuario.innerHTML = ""
             // btnLogin.innerHTML = "Login";
+            // Esto va hacer que se cambien los estados y vuelva a renderizar el componente
+            setUsMostrar(lsLblUsMostrar);
+            setBtnLogInOut(lsLblBotonLogInOut);
+                // --> SE VA A RENDERIZAR TODO DE NUEVO EL COMPONENTE
+            navigate('/home')
         }
+    }
+
+    //  NO FUNCIONA XQUE NO VA A LA SECCION #INICIO
+    // const onClickInicio = () => {
+    //     alert ("entro en click Inicio")
+    //     navigate('/home')
+    // }
+
+    const onClickProducts = () => {
+        alert ("entro en click Productos")
+        navigate('/products')
     }
 
     return (
         <div stye={{ marginTop:"0%", padding: "0px" }}>
             <header>
-            <div class="encabezado">
-                <div class="logo">
-                    <a class="ARefLogo" href="/home#Inicio">
+            <div className="encabezado">
+                <div className="logo">
+                    <a className="ARefLogo" href="/home#Inicio">
                            {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                        <img class="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
-                        {/* <img class="ImagenLogo" src={'../../Imagenes/LogoKiwi.jpg'} alt="LogoKiwi"/>     */}
+                        <img className="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
+                        {/* <img className="ImagenLogo" src={'../../Imagenes/LogoKiwi.jpg'} alt="LogoKiwi"/>     */}
                     </a>
-                    <div class="LogoOpacidad"></div>
+                    <div className="LogoOpacidad"></div>
                 </div>
                 
-                <nav class="NavBar">
-                    <ul class="ListaElementos">
-                        <li class="ElementoNav">
+                <nav className="NavBar">
+                    <ul className="ListaElementos">
+                        <li className="ElementoNav">
                             <a href="/home#Inicio">Inicio</a>
+                            {/* No funciona xque no va a la seccion # */}
+                            {/* <a onClick={onClickInicio}>Inicio</a> */}
                                 {/* redireccionar de esta manera hacer recargar la pagina */}
                                 {/* FALTAR AVIERGUAR SI ES ASI */}
                         </li>
-                        <li class="ElementoNav">
-                            <a href="/home#QuienesSomos" class="LiQuienesSomos">Q</a>
+                        <li className="ElementoNav">
+                            <a href="/home#QuienesSomos" className="LiQuienesSomos">Q</a>
                         </li>
-                        <li class="ElementoNav"> 
-                            {/* <!-- <a href="#Productos" class="LiProdcutos">Prod</a> --> */}
-                            <a href="/products" class="LiProdcutos">Prod</a>
+                        <li className="ElementoNav"> 
+                            {/* <!-- <a href="#Productos" className="LiProdcutos">Prod</a> --> */}
+                            <a onClick={() => onClickProducts()} className="LiProdcutos">Prod</a>
                         </li>
-                        <li class="ElementoNav">
-                            <a href="/home#Pedidos" class="liPedidos">Ped</a>
+                        <li className="ElementoNav">
+                            <a href="/home#Pedidos" className="liPedidos">Ped</a>
                         </li>
-                        <li class="ElementoNav"><a href="/home#Contacto">Contacto</a></li>
-                        {/* <li class="ElementoNav" id="lblUsuario" onClick={onClickLblUsuario}>{usMostrar}</li> */}
-                        <li class="ElementoNav" id="lblUsuario" onClick={onClickLblUsuario}>{usMostrar}</li>
-                        {/* <li class="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li> */}
+                        <li className="ElementoNav"><a href="/home#Contacto">Contacto</a></li>
+                        <li className="ElementoNav" id="lblUsuario" onClick={() => onClickLblUsuario()}>{usMostrar}</li>
+                        {/* <li className="ElementoNav" id="lblUsuario" onClick={onClickLblUsuario}>{usMostrar}</li> */}
+                        {/* <li className="ElementoNav" id="lblUsuario" onClick={() => onClickLblUsuario()}>{localStorage.getItem('emailUsuario')}</li> */}
+                        {/* <li className="ElementoNav" id="lblUsuario" font-size= "0.70em">{lsLblUsMostrar}</li> */}
 
                         {/* <!-- <li><a href="login.html">
-                        <button id="btnLogin" class="BtnLogin" >Login</button></a></li> --> */}
+                        <button id="btnLogin" className="BtnLogin" >Login</button></a></li> --> */}
                         {/* <!-- El login lo paso a manejar por el evento click del boton dentro del javascript 'index.js' --> */}
-                        <li><button id="btnLogin" class="BtnLogin" onClick={onClickLoginLogout}> {btnLogInOut}</button></li> 
-                        {/* <li><button id="btnLogin" class="BtnLogin" onClick={onClickLoginLogout}> {btnLogInOut}</button></li>  */}
+                        {/* <li><button id="btnLogin" className="BtnLogin" onClick={onClickLoginLogout}> {btnLogInOut}</button></li>  */}
+                        {/* <li><button id="btnLogin" className="BtnLogin" onClick={() => onClickLoginLogout()}> {lsLblBotonLogInOut}</button></li>  */}
+                        <li><button id="btnLogin" className="BtnLogin" onClick={() => onClickLoginLogout()}> {btnLogInOut}</button></li> 
                         {/* onClick={() => navigate('/home')} */}
                     </ul>
                 </nav> 
             </div>
-            {/* <div class="Portada" id="Inicio">
-                <div class="portada-opacidad"></div> */}
-                    {/* <h1 class="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1> 
-                    <h1 class="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1> */}
+            {/* <div className="Portada" id="Inicio">
+                <div className="portada-opacidad"></div> */}
+                    {/* <h1 className="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1> 
+                    <h1 className="TituloPortada2">NOSOTROS TE LO LLEVAMOS</h1> */}
             {/* </div> */}
             </header>
         </div>
