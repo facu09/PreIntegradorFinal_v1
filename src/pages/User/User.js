@@ -139,8 +139,10 @@ const User = () => {
                     </div>
                     <div className="DivBotonera">
                         <div className= "BotonAlta">
-                            <a className ="AHref_submit" href="../../index.html">
-                                <button className='Submit' type="submit" onClick={onClickVolver} > <ins>V</ins>olver</button></a>
+                            {/* Ojo el href hace que despues de hacer el onclik, vaya al href, le saco el href */}
+                            <a className ="AHref_submit" >
+                                <button className='Submit' onClick={onClickVolver} > <ins>V</ins>olver</button>
+                            </a>
                         </div>
                         {/* <!-- <div className= "BotonAlta">
                             <a className ="AHref_submit Submit" href="../../index.html"><button type="submit" ><ins>C</ins>ancelar</button></a>

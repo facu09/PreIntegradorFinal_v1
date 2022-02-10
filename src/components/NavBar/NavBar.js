@@ -26,8 +26,9 @@ console.log ("Componente NavBar 0:  previo al entrar al componente")
 
 //-------------------------------- Funcion que devuelve el DIV del componente -------------------------//
 const NavBar = () => {
-    alert ("Componente NavBar 1: Inicio Ejecución interior del componente NavBar = ()")
-    
+    // alert ("Componente NavBar 1: Inicio Ejecución interior del componente NavBar = ()")
+    console.log ("Componente NavBar 1: Inicio Ejecución interior del componente NavBar = ()")
+
     //Al manejar estados: todo lo que está aca se va a ejecutar cada vez que cambia un useState o hook    
     
     //recupero valores del storage primero
@@ -35,7 +36,7 @@ const NavBar = () => {
     lsToken = localStorage.getItem('token');  
     //Armo varibles para que se van a mostrar en el NavBar
     if ((lsToken) && !(lsToken === 'undefined')) {
-        alert("NavBar: 1- Tiene token y es: " + lsToken)
+        // alert("NavBar: 1- Tiene token y es: " + lsToken)
         console.log ("NavBar: 1- Tiene token y es: " + lsToken)
         // --> Pongo el mail del usuario y el boton de 'Logout'
         if (lsEmail) {
@@ -46,7 +47,7 @@ const NavBar = () => {
             lsLblBotonLogInOut = "Logout";  //seteo el botón 'Login/Logout' para que se deslogue
         }
     } else {
-        alert("NavBar: 1- NO tiene token")
+        // alert("NavBar: 1- NO tiene token")
         console.log("NavBar: 1- NO tiene token")
         lsLblUsMostrar = "( - )"
         lsLblBotonLogInOut = "Login" //cambio botón 'Login/Logout' para que se logue
@@ -70,17 +71,20 @@ const NavBar = () => {
             // window.location.replace("/User");  //deberia usar el navigate para que no recargue la pagina en el navegador
             navigate('/user');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
         } else {
+            //este alert esta bien es para comunicar al usuario este hecho.
             alert ("No hay usuario logueado para ir ver los datos del mismo! \nLoguese primero para acceder a los datos del usuario.")
         }
     }
 
     //Evento Click en 'Login/Logout'
     const onClickLoginLogout = () => {
-        // alert("Entro al onClickLoginLogout y el lsLblBotonLogInOut es: " + lsLblBotonLogInOut);
-        alert("NavBar: B- Entro al onClickLoginLogout y el usMostrar es: '" + lsLblUsMostrar + "'");
+        //  alert("NavBar: B- Entro al onClickLoginLogout y el usMostrar es: '" + lsLblUsMostrar + "'");
+         console.log("NavBar: B- Entro al onClickLoginLogout y el usMostrar es: '" + lsLblUsMostrar + "'");
+         
          if (lsLblBotonLogInOut === 'Login') {
         // if (btnLogInOut === 'Login') {
-             alert ("Entro al Login ehhhh PERO COMO AHORA USO el 'navigate('/login') --> NO RECARGA LA PAGINA. En cambio ' EL Window.location.replace --> recarga lapagina --> mirá arriba...!!!")
+            //  alert ("Entro al Login ehhhh PERO COMO AHORA USO el 'navigate('/login') --> NO RECARGA LA PAGINA. En cambio ' EL Window.location.replace --> recarga lapagina --> mirá arriba...!!!")
+             console.log ("Entro al Login ehhhh PERO COMO AHORA USO el 'navigate('/login') --> NO RECARGA LA PAGINA. En cambio ' EL Window.location.replace --> recarga lapagina --> mirá arriba...!!!")
             
             //Aca habria que ver el tema de las rutas // VIDEO-CLASE de Rute y New Rute --> 14/Oct/21
             //window.location.replace("./pages/Login/login.html")
@@ -95,7 +99,9 @@ const NavBar = () => {
 
         } else {
             //Está en botón --> 'Logout'
-            alert ("NavBar: Entro al Logout --> se va a desloguear: borro el local storage el 'token' y el 'emailUsuario'");
+            // alert ("NavBar: Entro al Logout --> se va a desloguear: borro el local storage el 'token' y el 'emailUsuario'");
+            console.log ("NavBar: Entro al Logout --> se va a desloguear: borro el local storage el 'token' y el 'emailUsuario'");
+
             //Deslogueo al usuario 
             localStorage.setItem('token', undefined);
             localStorage.setItem('emailUsuario', "");
@@ -109,6 +115,7 @@ const NavBar = () => {
             setUsMostrar(lsLblUsMostrar);
             setBtnLogInOut(lsLblBotonLogInOut);
                 // --> SE VA A RENDERIZAR TODO DE NUEVO EL COMPONENTE
+            alert ("Se cerró la seción Exitosamente!  ")
             navigate('/home')
         }
     }
@@ -120,7 +127,8 @@ const NavBar = () => {
     // }
 
     const onClickProducts = () => {
-        alert ("entro en click Productos")
+        // alert ("entro en click Productos")
+        console.log ("entro en click Productos")
         navigate('/products')
     }
 

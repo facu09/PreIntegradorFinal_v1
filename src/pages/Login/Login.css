@@ -5,11 +5,18 @@
 }
 
 body {
+   
     background-color: #0E0E0E;
     background-color: rgb(93, 155, 60);
     margin:0;
     padding: 0;
-}
+    /* display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    justify-content: flex-end;
+    height: 100vh;
+    width: 100vw;*/
+} 
 
 .Portada_Login{
     display: flex;
@@ -40,7 +47,8 @@ body {
     border-radius:20px;
     /* color: green; */
     box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
-    margin-bottom: 1.5rem;
+    margin-top: 0.8rem;
+    margin-bottom: 3.5rem;
 }
 
 .ImagenUsuario{
@@ -101,7 +109,7 @@ body {
     border-color:rgb(195, 194, 194);
     border-radius: 0px;
     /* font-family: Verdana, Tahoma, Geneva, sans-serif; */
-    font-size: 1rem;
+    font-size: 1.1rem;
     color:rgb(44, 44, 44);
 }
 
@@ -134,16 +142,16 @@ input::placeholder {
     align-items: center;
     text-decoration: none;
 }
-.Submit{
-    width: 100%;
-    height: 2rem;
-    margin-top: 0rem;
+.BtnEntrar{
+    width: 70%;
+    height: 2.3rem;
+    margin-top: 1rem;
     margin-bottom: 0rem;
     /* background-color: rgb(7, 27, 82);
     border-color: rgb(58, 80, 141); */
     /* font-family: Tahoma, Geneva,  sans-serif; */
     font-size: 1.1rem; 
-    font-weight:400;
+    font-weight:500;
     align-items: center;
     border-radius: 60px;
     /* color:rgb(47, 47, 47);
@@ -154,7 +162,7 @@ input::placeholder {
     background-color: rgb(185, 255, 147); */
     background-color: rgb(134, 170, 115);
 }
-.Submit:hover{
+.BtnEntrar:hover{
     cursor:pointer;
     background-color: rgb(77, 128, 49);
     /* background-color: rgb(169, 216, 144); */
@@ -162,10 +170,10 @@ input::placeholder {
 }
 
 .CancelarBtn{
-    width: 100%;
-    height: 2rem;
-    margin-top: 0rem;
-    margin-bottom: 0px;
+    width: 89%;
+    height: 2.1rem;
+    margin-top: 1rem;
+    /* margin-bottom: 10px; */
     padding-top: 3px;
     font-size: 0.90rem; 
     font-style: normal;
@@ -190,7 +198,7 @@ input::placeholder {
 .OlvidePass{
     width: 90%;
     height: 2rem;
-    margin-top: 10px;
+    margin-top: 12px;
     margin-bottom: 0px;
     background-color:white;
     /* font-family: Tahoma, Geneva,  sans-serif; */

@@ -1,0 +1,77 @@
+/*********************************/
+/***      MEDIA QUERIES        ***/
+
+/* para Navegadores PC pantallas pequeñas o restauradas */
+@media (min-width: 769px) and (max-width: 1224px) {
+    .Portada_Login{
+           margin-top: 7%;
+    }
+    .Card{
+        width: 50%;
+    }    
+    .IniciarSesion{
+        font-size: 1.6rem;
+    }
+    .CamposEntrada{
+        width: 99%;
+        height: 2.7em;
+        font-size: 1.3em;
+    }
+    .BtnEntrar{
+       height: 2.7em;
+       font-size: 1.1rem;     
+    }
+}
+
+/* para Tablets Ipads  van de 455 a 768px*/
+@media (min-width: 455px) and (max-width:768px) {
+    .Portada_Login{
+        margin-top: 10%;
+    }
+    .Card{
+        width: 78%;
+    }
+    .IniciarSesion{
+        font-size: 1.4rem;
+    }
+    .CamposEntrada{
+        width: 99%;
+        height: 2.7em;
+        font-size: 1.2em;
+    }
+    .BtnEntrar{
+       height: 2.7em;
+       font-size: 1rem;     
+    }
+}
+
+/* Para moviles */
+@media (min-width: 0px) and (max-width:454px) {
+    .Portada_Login{
+        margin-top: 17%;
+    }
+    .IniciarSesion p{
+        /* margin-bottom: 30px; */
+        font-size:1.1rem;
+    }
+    .Card{
+        width: 85%;
+    }
+    .CamposEntrada{
+        width: 95%;
+        height: 2.5em;
+        font-size: 1.1em;
+    }
+    .Etiquetas{
+        width: 90%;
+    }
+    .BtnEntrar{
+       height: 2.6em;
+       font-size: 0.8rem;     
+    }
+    .OlvidePass{
+        width: 85%;
+        height: 2.4em;
+        font-size: 0.8rem; 
+    }
+ }

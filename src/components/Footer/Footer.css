@@ -9,6 +9,7 @@ footer{
     display: flex;
     flex-direction: column; /*para que las 2 lineas esten una abajo de la otra*/
     justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     /* Agrego padings para que quede mas elegante */
     padding-top: 1.5rem;

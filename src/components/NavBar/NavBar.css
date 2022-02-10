@@ -140,7 +140,13 @@ ol, ul {
 }
 
 .ElementoNav:hover{
-    font-size: 1.3rem;  /*En React tengo que achicar la letra no se xq*/
+    /* esta form, con el font-size te mueve los elementos del navbar */
+    /* font-size: 1.3rem;       */
+                            /*En React tengo que achicar la letra no se xq*/
+    /*Otra forma de hacerlo, lindo me lo paso Franco*/
+    transform: scale(1.1, 1.1);
+    transition: 0.3s;
+
      /* PRUEBA DE COLORES*/
     /* color:rgb(236, 62, 9,1);
     color: rgb(183, 213, 212,1);

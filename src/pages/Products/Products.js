@@ -1,7 +1,8 @@
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import './Products.css'
 
-alert ("Componente Productos: 0- ejecución previa.")
+// alert ("Componente Productos: 0- ejecución previa.")
+console.log ("Componente Productos: 0- ejecución previa.")
 
 const Products = () => {
     //dentro de procedimiento principal
@@ -13,7 +14,8 @@ const Products = () => {
         // alert ("Ahora va a usar el window.location.replace  --> y mirá arriba -->  recarga la pagina!! ojo --> mejor usar el navigate('/home')")
         // window.location.replace("/home");  //deberi usar el navigate
 
-        alert ("Con el navigate NO recarga la pagina, mirá arriba....")
+        // alert ("Con el navigate NO recarga la pagina, mirá arriba....")
+        console.log ("Con el navigate NO recarga la pagina, mirá arriba....")
         // navigate('/home');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
         navigate('/home') //pruebo esto con el # a ver si anda
     }
