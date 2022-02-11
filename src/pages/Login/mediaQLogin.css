@@ -4,7 +4,8 @@
 /* para Navegadores PC pantallas pequeñas o restauradas */
 @media (min-width: 769px) and (max-width: 1224px) {
     .Portada_Login{
-           margin-top: 7%;
+           margin-top: 8%;
+           margin-bottom: 7%;
     }
     .Card{
         width: 50%;

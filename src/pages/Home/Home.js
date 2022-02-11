@@ -206,7 +206,7 @@ const Home = () => {
                                 <textarea type="mensaje" placeholder="Ingrese su mensaje"></textarea>
                             </div>
                             <div className="container-btn">
-                                <button className="BtnEnviar" tabIndex="0" accessKey="E"><ins>E</ins>nviar</button>
+                                <button className="BtnEnviar" tabIndex="0" accessKey="n">E<ins>n</ins>viar</button>
                             </div>
                         </form>
                     </div>

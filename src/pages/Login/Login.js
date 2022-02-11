@@ -165,14 +165,14 @@ const Login = () => {
 
                 <div className= "Etiquetas" tabIndex="-1">
                     {/* <a className ="AHref_submit"  tabIndex="-1">   */}
-                        <button className="BtnEntrar" onClick={onClickSubmitLogin} > <ins>E</ins>ntrar</button>  
+                        <button className="BtnEntrar" onClick={onClickSubmitLogin} accesskey="n" > E<ins>n</ins>trar</button>  
                     {/* </a> */}
                 </div>
                 <div className= "Etiquetas" tabIndex="-1">
                     {/* <a className ="AHref_submit" href="../../index.html" tabIndex="-1">   */}
                             {/* Tengo que sacar el href, y dejar solo el onClick para que no recargue la pagina */}
                     <a className ="AHref_submit" tabIndex="-1">  
-                        <button className="CancelarBtn" onClick={onClickCancelar}> <ins>C</ins>ancelar</button>
+                        <button className="CancelarBtn" onClick={onClickCancelar} accesskey="c"> <ins>C</ins>ancelar</button>
                     </a>
                 </div>
 
@@ -180,13 +180,13 @@ const Login = () => {
 
                 <div className= "Etiquetas" tabIndex="-1">
                     {/* <!-- <a className ="AHref_submit" href="" tabIndex="-1"> --> */}
-                        <button id="btnOlvidePass" className="OlvidePass" onClick={onClickBtnOlvidePass}> <ins>O</ins>lvidé mi contraseña</button>
+                        <button id="btnOlvidePass" className="OlvidePass" onClick={onClickBtnOlvidePass} accesskey="o"> <ins>O</ins>lvidé mi contraseña</button>
                     {/* <!-- </a> --> */}
                 </div>
                 <div className= "Etiquetas" tabIndex="-1">
                     {/* <!-- por cada '../'' subo un nivel de carpeta --> */}
                     {/* <a className ="AHref_submit" href="../Register/register.html" tabIndex="-1">   */}
-                        <button className="OlvidePass" onClick={onClickBtnNuevaCta}> C<ins>r</ins>ear una cuenta</button>
+                        <button className="OlvidePass" onClick={onClickBtnNuevaCta} accesskey="r"> C<ins>r</ins>ear una cuenta</button>
                     {/* </a>  */}
                 </div>  
             </div>

@@ -31,7 +31,7 @@
     width: 70%;
     /* saco el height para que tome hasta el final */
     /* height: 60%; */ 
-    padding: 1% 2% 2% 2%;
+    padding: 1% 2% 1% 2%;
     /* border: solid;
     border-color:gray; */
     /* background-color: rgba(79, 84, 73, 0.5);
@@ -40,8 +40,10 @@
     border-radius:20px;
     /* color: green; */
     box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+    margin-top: 1.5%;
+    margin-bottom: 6%;
 }
 
 .Rgst_ImagenUsuario{
@@ -167,6 +169,7 @@ input::placeholder {
     align-items: center;
     text-decoration: none;
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .Rgst_Submit{
@@ -174,7 +177,7 @@ input::placeholder {
     /* height: 10vh;  manejo el ancho con el padding*/
     padding: 5% 2% 5% 2%;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5rem;
     font-size: 1.5em; 
     font-weight: bold; 
     /* font-weight:900 ; */
