@@ -1,22 +1,19 @@
+@import url('../../_base.css');
+
 * {
     /* padding: 0px;
     margin: 0px; */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif , cursive;
 }
 
-body {
-   
-    background-color: #0E0E0E;
-    background-color: rgb(93, 155, 60);
+/* IMPORTANTE: No va la clase 'body' acá ya esta definido mas arriba en el 
+/*       Incluso si quiero cambiar el body acá deberia hacerlo desde el NavBar.css */
+/* body {
+   background-color: rgb(93, 155, 60);
+   background-color: red;
     margin:0;
     padding: 0;
-    /* display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    justify-content: flex-end;
-    height: 100vh;
-    width: 100vw;*/
-} 
+} */
 
 .Portada_Login{
     display: flex;
@@ -43,7 +40,8 @@ body {
     border-color:gray; */
     /* background-color: rgba(79, 84, 73, 0.5);
     background-color: rgba(119, 83, 57, 0.5); */
-    background-color: rgba(119, 83, 57, 0.9);
+    /* background-color: rgba(119, 83, 57, 0.9); */
+    background-color: var(--color-fondo-cards);
     border-radius:20px;
     /* color: green; */
     box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
@@ -156,17 +154,21 @@ input::placeholder {
     border-radius: 60px;
     /* color:rgb(47, 47, 47);
     color:rgb(88, 61, 42);   */
-    color:rgb(51, 36, 25); 
+    /* color:rgb(51, 36, 25);  */
+    color:var(--color-letra-boton);
     border-color: rgb(153, 153, 153);
     /* background-color: rgba(248, 255, 239, 0.5);
     background-color: rgb(185, 255, 147); */
-    background-color: rgb(134, 170, 115);
+    /* background-color: rgb(134, 170, 115); */
+    background-color: var(--color-boton);
 }
 .BtnEntrar:hover{
     cursor:pointer;
-    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(77, 128, 49); */
+    background-color: var(--color-boton-hover);
     /* background-color: rgb(169, 216, 144); */
-    color:white;
+    /* color:white; */
+    color: var(--color-letra-boton-hover);
 }
 
 .CancelarBtn{
@@ -179,20 +181,24 @@ input::placeholder {
     font-style: normal;
     font-weight: 600;
     /* color: rgb(47, 47, 47); */
-    color:rgb(51, 36, 25); 
+    /* color:rgb(51, 36, 25);  */
+    color: var(--color-letra-boton);
     align-items: center;
     border-radius:60px;
     /* border-color:rgb(151, 158, 147);  
     background-color: rgba(248, 255, 239, 0.5); */
-    background-color: rgb(134, 170, 115);
+    /* background-color: rgb(134, 170, 115); */
+    background-color: var(--color-boton);
 }
 
 .CancelarBtn:hover{
     /* font-size: 1.1em; */  /*se agranda el card*/
     cursor: pointer;
-    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(77, 128, 49); */
+    background-color: var(--color-boton-hover);
     /* background-color: rgb(169, 216, 144); */
-    color:white;
+    /* color:white; */
+    color: var(--color-letra-boton-hover)
 }
 
 .OlvidePass{
@@ -200,23 +206,26 @@ input::placeholder {
     height: 2rem;
     margin-top: 12px;
     margin-bottom: 0px;
-    background-color:white;
     /* font-family: Tahoma, Geneva,  sans-serif; */
     font-size: 0.90rem; 
     font-style: normal;
     font-weight: 600;
     /* color: rgb(47, 47, 47); */
-    color:rgb(51, 36, 25); 
+    /* color:rgb(51, 36, 25);  */
+    color: var(--color-letra-boton);
     align-items: center;
     border-radius:60px;
     /* border-color:rgb(151, 158, 147);  
     background-color: rgba(248, 255, 239, 0.5); */
-    background-color: rgb(134, 170, 115);
+    /* background-color: rgb(134, 170, 115); */
+    background-color: var(--color-boton);
 }
 .OlvidePass:hover{
     /* font-size: 1.1em; */  /*se agranda el card*/
     cursor: pointer;
-    background-color: rgb(77, 128, 49);
+    /* background-color: rgb(77, 128, 49); */
+    background-color: var(--color-boton-hover);
     /* background-color: rgb(169, 216, 144); */
-    color:white;
+    /* color:white; */
+    color: var(--color-letra-boton-hover);
 }

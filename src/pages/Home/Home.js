@@ -1,5 +1,6 @@
-import  './Home.css';
+import  './Home.scss';
 import './HomeMedQ.css';
+// import '../../variables.scss';
 
 //Importo imagenes
 import imgChocoHelado from '../../Imagenes/Kiwi_ChocoHelado.jpg';

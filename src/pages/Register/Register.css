@@ -1,3 +1,5 @@
+@import url('../../_base.css');
+
 * {
     /* padding: 0px;
     margin: 0px; */
@@ -36,7 +38,9 @@
     border-color:gray; */
     /* background-color: rgba(79, 84, 73, 0.5);
     background-color: rgba(119, 83, 57, 0.5); */
-    background-color: rgba(119, 83, 57, 0.9);
+    /* background-color: rgba(119, 83, 57, 0.9); */
+    background-color: var(--color-fondo-cards);
+    
     border-radius:20px;
     /* color: green; */
     box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
@@ -73,7 +77,8 @@
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     /* color:rgb(172, 174, 172);
     color:rgb(192, 147, 158); */
-    color:white;
+    /* color:white; */
+    color: var(--color-letra-secciones);
     /* la fuente */
     font-size:1.8rem;
     font-weight: bold;
@@ -91,7 +96,8 @@
     /* color de los lavels del FormCuenta */
     /* color: rgb(172, 174, 172);
     color: rgb(183, 213, 212); */
-    color: white;
+    /* color: white; */
+    color: var(--color-letra-secciones);
     /* los labels delform */
     font-size: 1.3rem;
 }
@@ -183,18 +189,20 @@ input::placeholder {
     /* font-weight:900 ; */
     align-items: center;
     border-radius: 60px;
-    color:rgb(88, 61, 42);  
-    color:rgb(51, 36, 25); 
+    /* color:rgb(88, 61, 42);  
+    color:rgb(51, 36, 25);  */
+    color: var(--color-letra-boton);
     border-color: rgb(153, 153, 153);
-    background-color: rgba(248, 255, 239, 0.5);
-    background-color: rgba(75, 193, 248, 0.87);
-    background-color: rgb(134, 170, 115);
+    /* background-color: rgba(248, 255, 239, 0.5);
+    background-color: rgba(75, 193, 248, 0.87); */
+    /* background-color: rgb(134, 170, 115); */
+    background-color: var(--color-boton);
     /* border-style: hidden; */
 }
 .Rgst_Submit:hover{
     cursor:pointer;
-    background-color: rgb(51, 80, 34);
-    background-color: rgb(77, 128, 49);
-    /* background-color: rgb(169, 216, 144); */
-    color:white;
+    /* background-color: rgb(77, 128, 49); */
+    background-color: var(--color-boton-hover);
+    /* color:white; */
+    color: var(--color-letra-boton-hover)
 }

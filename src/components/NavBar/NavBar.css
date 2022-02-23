@@ -1,17 +1,25 @@
+/* importo las variables globales de estilos */
+@import url('../../_base.css');  
+
 * {
     /* padding: 0px;
     margin: 0px; */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif , cursive;
 }
 
+/* IMPORTANTE: Si va acá el body acá (no como clase, si como elemento), xque sino como esta configurado ahora queda
+               en blanco el fondo de los componentes que vayan debajo, los login.js user.js register.js productos.js  va la clase 'body' acá ya esta definido mas arriba en el */
 body {
     /* PRUEBA DE COLORES*/
     /* background-color: #0E0E0E;
     background-color: rgb(236, 78, 32);
     background-color: white; */
-    background-color: rgb(93, 155, 60);
-    margin:0;
-    padding: 0;
+
+    background-color: var(--fondoVerdeKiwi);
+    /* background-color:  var(--fondo-home-amarillo); */
+
+    /* margin:0;
+    padding: 0; */
 }
 
 header{
@@ -167,19 +175,22 @@ ol, ul {
      /* PRUEBA DE COLORES*/
     /* color:rgb(70, 48, 33);   */
     color:rgb(51, 36, 25); 
+    color: var(--color-letra-boton);
     border-color: rgb(153, 153, 153);
     /* background-color: rgba(248, 255, 239, 0.5); */
-    background-color: rgb(134, 170, 115);
-    
+    /* background-color: rgb(134, 170, 115); */
+    background-color: var(--color-boton);
 } 
 .BtnLogin:hover{
     /* no queda lindo el agrandar el botón*/
     /* height: 2.2rem;
     font-size: 1.1rem; */
     cursor: pointer;
-    background-color: rgb(77, 128, 49);
     /* background-color: rgb(169, 216, 144); */
-    color:white;
+    /* background-color: rgb(77, 128, 49); */
+    background-color: var(--color-boton-hover);
+    /* color:white; */
+    color: var(--color-letra-boton-hover);
     
 }
 

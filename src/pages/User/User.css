@@ -1,15 +1,11 @@
-* {
-    /* padding: 0px;
-    margin: 0px; */
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif , cursive;
-}
+@import url('../../_base.css');
 
-body {
-    background-color: #0E0E0E;
-    background-color: rgb(93, 155, 60);
-    margin:0;
-    padding: 0;
-}
+/* * {
+
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif , cursive;
+} */
+
+/* recordar que no va el body {} */
 
 .PortadaUser{
     display: flex;
@@ -35,9 +31,10 @@ body {
     padding: 1% 2% 1% 2%;
     /* border: solid;
     border-color:gray; */
-    background-color: rgba(79, 84, 73, 0.5);
+    /* background-color: rgba(79, 84, 73, 0.5);
     background-color: rgba(119, 83, 57, 0.5);
-    background-color: rgba(119, 83, 57, 0.9);
+    background-color: rgba(119, 83, 57, 0.9); */
+    background-color: var(--color-fondo-cards);
     border-radius:20px;
     /* color: green; */
     box-shadow: 0px 3px 24px 0px rgba(0,0,0,0.75);
@@ -65,9 +62,10 @@ body {
     margin-top: 0px;
     margin-bottom: 5px;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    color:rgb(172, 174, 172);
+    /* color:rgb(172, 174, 172);
     color:rgb(192, 147, 158);
-    color:white;
+    color:white; */
+    color: var(--color-letra-secciones);
     /* la fuente */
     font-size:1.8rem;
     font-weight: bold;
@@ -85,7 +83,8 @@ body {
     /* color de los lavels del FormCuenta */
     /* color: rgb(172, 174, 172); */
     /* color: rgb(183, 213, 212); */
-    color: white;
+    /* color: white; */
+    color: var(--color-letra-secciones);
     /* los labels delform */
     font-size: 1.2rem;
 }
