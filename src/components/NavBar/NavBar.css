@@ -174,7 +174,7 @@ ol, ul {
     padding: 3px 10px 3px 10px; 
      /* PRUEBA DE COLORES*/
     /* color:rgb(70, 48, 33);   */
-    color:rgb(51, 36, 25); 
+    /* color:rgb(51, 36, 25);  */
     color: var(--color-letra-boton);
     border-color: rgb(153, 153, 153);
     /* background-color: rgba(248, 255, 239, 0.5); */
@@ -207,14 +207,16 @@ ol, ul {
 
 
 .TituloPortada1 {
-    color: white;
+    /* color: white; */
+    color: var(--color-letra-secciones);
     font-size: 4rem;
     font-weight: bold;
     margin-top: 2rem;
     margin-bottom: 0.5rem
 }
 .TituloPortada2 {
-    color: white;
+    /* color: white; */
+    color: var(--color-letra-secciones);
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 0.5rem

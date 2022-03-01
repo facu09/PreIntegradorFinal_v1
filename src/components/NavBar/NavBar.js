@@ -69,7 +69,7 @@ const NavBar = () => {
         
         if (lsLblUsMostrar !== "( - )" ) {
             // window.location.replace("/User");  //deberia usar el navigate para que no recargue la pagina en el navegador
-            navigate('/user');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
+            navigate('/user');  
         } else {
             //este alert esta bien es para comunicar al usuario este hecho.
             alert ("No hay usuario logueado para ir ver los datos del mismo! \nLoguese primero para acceder a los datos del usuario.")
@@ -126,10 +126,16 @@ const NavBar = () => {
     //     navigate('/home')
     // }
 
-    const onClickProducts = () => {
-        // alert ("entro en click Productos")
-        console.log ("entro en click Productos")
-        navigate('/products')
+    const onClickProducts = () => { 
+        // alert ("Esta queriendo ir a la seccion Productos, El token es " + lsToken);
+        //Si tiene token Y es <> de 'undefined' ==>  hay usuario logueado
+        if ((lsToken) && !(lsToken === 'undefined')) {
+            // window.location.replace("/User");  //deberia usar el navigate para que no recargue la pagina en el navegador
+            navigate('/products');   
+        } else {
+            alert ("¡¡No hay usuario Logueado!! \n\n Para utilizar esta Sección deberá Iniciar Seción.")
+            navigate('/login'); //voy al login para que se logue
+        }
     }
 
     return (

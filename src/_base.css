@@ -1,7 +1,5 @@
 :root {
-	--primary: red;
-	--secondary: blue;
-    --fondo-home-amarillo: yellow;
+    --fondo-home-amarillo: yellow;    /* no se usa: es de ejemplo */
     --fondoVerdeKiwi: rgb(93, 155, 60);
     --color-letra-secciones: white;
     --color-fondo-cards:  rgba(119, 83, 57, 0.9);

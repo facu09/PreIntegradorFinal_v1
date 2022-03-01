@@ -146,49 +146,50 @@ const Login = () => {
 
 
     return (
-        <div className="Portada_Login">
-            <div className="Card_Login">
-                <div className="ImagenUsuario">
+        <div className="Login__Portada_Login">
+            <div className="Login__Card_Login">
+                <div className="Login__ImagenUsuario">
                     <img src={imgLogin} alt="Inicio de Sesion"/>
                 </div>
-                <div className="IniciarSesion">
+                <div className="Login__IniciarSesion">
                     <p>Iniciar Sesión</p>
                 </div>
-                <div className= "Etiquetas">
-                    <input className="CamposEntrada" placeholder="Email" onChange={handleEmailChange} value={email} type="email" id="campoEmail" autoFocus/>
+                <div className="Login__Etiquetas">
+                    <input className="Login__CamposEntrada" placeholder="Email" onChange={handleEmailChange} value={email} type="email" id="campoEmail" autoFocus/>
                 </div>
-                <div className= "Etiquetas">
-                    <input className="CamposEntrada CampoEntradaPass"  placeholder="Password" onChange={handlePasswordChange} value={password}  type="password" />
+                <div className="Login__Etiquetas">
+                    <input className="Login__CamposEntrada CampoEntradaPass"  placeholder="Password" onChange={handlePasswordChange} value={password}  type="password" />
                 </div>
                 
-                {/* <p className= "pError" style={{color: 'red' }}>{error}</p> */}
+                {/* <p className="Login__pError" style={{color: 'red' }}>{error}</p> */}
 
-                <div className= "Etiquetas" tabIndex="-1">
-                    {/* <a className ="AHref_submit"  tabIndex="-1">   */}
-                        <button className="BtnEntrar" onClick={onClickSubmitLogin} accesskey="n" > E<ins>n</ins>trar</button>  
+                <div className="Login__Etiquetas" tabIndex="-1">
+                    {/* <a className="Login__AHref_submit"  tabIndex="-1">   */}
+                        <button className="Login__BtnEntrar" onClick={onClickSubmitLogin} accesskey="n" > E<ins>n</ins>trar</button>  
                     {/* </a> */}
                 </div>
-                <div className= "Etiquetas" tabIndex="-1">
-                    {/* <a className ="AHref_submit" href="../../index.html" tabIndex="-1">   */}
+                <div className="Login__Etiquetas" tabIndex="-1">
+                    {/* <a className="Login__AHref_submit" href="../../index.html" tabIndex="-1">   */}
                             {/* Tengo que sacar el href, y dejar solo el onClick para que no recargue la pagina */}
-                    <a className ="AHref_submit" tabIndex="-1">  
-                        <button className="CancelarBtn" onClick={onClickCancelar} accesskey="c"> <ins>C</ins>ancelar</button>
+                    <a className="Login__AHref_submit" tabIndex="-1">  
+                        <button className="Login__CancelarBtn" onClick={onClickCancelar} accesskey="c"> <ins>C</ins>ancelar</button>
                     </a>
                 </div>
 
-                {/* <p className="pToken" >{ token }</p> */}
-
-                <div className= "Etiquetas" tabIndex="-1">
-                    {/* <!-- <a className ="AHref_submit" href="" tabIndex="-1"> --> */}
-                        <button id="btnOlvidePass" className="OlvidePass" onClick={onClickBtnOlvidePass} accesskey="o"> <ins>O</ins>lvidé mi contraseña</button>
+                {/* <p className="Login__pToken" >{ token }</p> */}
+       
+                <div className="Login__Etiquetas" tabIndex="-1">
+                    {/* <!-- <a className="Login__AHref_submit" href="" tabIndex="-1"> --> */}
+                        <button id="btnOlvidePass" className="Login__OlvidePass" onClick={onClickBtnOlvidePass} accesskey="o"> <ins>O</ins>lvidé mi contraseña</button>
                     {/* <!-- </a> --> */}
                 </div>
-                <div className= "Etiquetas" tabIndex="-1">
+                <div className="Login__Etiquetas" tabIndex="-1">
                     {/* <!-- por cada '../'' subo un nivel de carpeta --> */}
-                    {/* <a className ="AHref_submit" href="../Register/register.html" tabIndex="-1">   */}
-                        <button className="OlvidePass" onClick={onClickBtnNuevaCta} accesskey="r"> C<ins>r</ins>ear una cuenta</button>
+                    {/* <a className="Login__AHref_submit" href="../Register/register.html" tabIndex="-1">   */}
+                        <button className="Login__OlvidePass" onClick={onClickBtnNuevaCta} accesskey="r"> C<ins>r</ins>ear una cuenta</button>
                     {/* </a>  */}
                 </div>  
+
             </div>
         </div>
     )

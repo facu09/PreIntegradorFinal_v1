@@ -3,22 +3,22 @@
 
 /* para Navegadores PC pantallas pequeñas o restauradas */
 @media (min-width: 769px) and (max-width: 1224px) {
-    .Portada_Login{
+    .Login__Portada_Login{
            margin-top: 8%;
            margin-bottom: 7%;
     }
-    .Card{
+    .Login__Card{
         width: 50%;
     }    
-    .IniciarSesion{
+    .Login__IniciarSesion{
         font-size: 1.6rem;
     }
-    .CamposEntrada{
+    .Login__CamposEntrada{
         width: 99%;
         height: 2.7em;
-        font-size: 1.3em;
+        font-size: 1.05rem;
     }
-    .BtnEntrar{
+    .Login__BtnEntrar{
        height: 2.7em;
        font-size: 1.1rem;     
     }
@@ -26,51 +26,64 @@
 
 /* para Tablets Ipads  van de 455 a 768px*/
 @media (min-width: 455px) and (max-width:768px) {
-    .Portada_Login{
+    .Login__Portada_Login{
         margin-top: 10%;
+        padding: 1% ;
     }
-    .Card{
-        width: 78%;
+    .Login__Card_Login{
+        width: 80%;   
     }
-    .IniciarSesion{
+    .Login__Card{
+        width: 90%;
+    }
+    .Login__IniciarSesion{
         font-size: 1.4rem;
     }
-    .CamposEntrada{
+    .Login__CamposEntrada{
         width: 99%;
         height: 2.7em;
-        font-size: 1.2em;
+        font-size: 0.95rem;
     }
-    .BtnEntrar{
+    .Login__BtnEntrar{
        height: 2.7em;
        font-size: 1rem;     
+    }
+    .Login__OlvidePass{
+        /* width: 85%; */
+        /*height: 2.4em; */
+        font-size: 0.9rem; 
     }
 }
 
 /* Para moviles */
 @media (min-width: 0px) and (max-width:454px) {
-    .Portada_Login{
-        margin-top: 17%;
+    .Login__Portada_Login{
+        margin-top: 20%;
+        margin-bottom: 10%;
     }
-    .IniciarSesion p{
+    .Login__Card_Login{
+        width: 85%;   
+    }
+    .Login__IniciarSesion p{
         /* margin-bottom: 30px; */
-        font-size:1.1rem;
+        font-size:1.5rem;
     }
-    .Card{
+    .Login__Card{
         width: 85%;
     }
-    .CamposEntrada{
+    .Login__CamposEntrada{
         width: 95%;
         height: 2.5em;
-        font-size: 1.1em;
+        font-size: 0.88rem;
     }
-    .Etiquetas{
+    .Login__Etiquetas{
         width: 90%;
     }
-    .BtnEntrar{
+    .Login__BtnEntrar{
        height: 2.6em;
        font-size: 0.8rem;     
     }
-    .OlvidePass{
+    .Login__OlvidePass{
         width: 85%;
         height: 2.4em;
         font-size: 0.8rem; 

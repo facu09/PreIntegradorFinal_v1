@@ -108,44 +108,44 @@ const User = () => {
     }
 
   return ( 
-    <div className="PortadaUser">
-        <div className="Card">
-            <div className="ImagenUsuario">
+    <div className="User__PortadaUser">
+        <div className="User__Card">
+            <div className="User__ImagenUsuario">
                 <img src={imgLogin} alt="Inicio de Sesion"/>
             </div>
-            <div className="CntNuevaCuenta">
+            <div className="User__CntNuevaCuenta">
                 <p>Datos del Usuario:</p>
                 {/* Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div */}
-                <div className = "FormCuenta" action="">
-                    <div className="container-input">
+                <div className="User__FormCuenta" action="">
+                    <div className="User__container-input">
                         <label htmlFor="name">Nombre:</label>
-                        <input id="name" className="CamposEntrada" type="text" name="name" readOnly="readOnly" defaultValue= {name}/>
+                        <input id="name" className="User__CamposEntrada" type="text" name="name" readOnly="readOnly" defaultValue= {name}/>
                     </div>
-                    <div className="container-input">
+                    <div className="User__container-input">
                         <label htmlFor="lastName">Apellido:</label>
-                        <input id="lastName" className="CamposEntrada" type="text" name="lastName" readOnly="readOnly" defaultValue={lastName}/>
+                        <input id="lastName" className="User__CamposEntrada" type="text" name="lastName" readOnly="readOnly" defaultValue={lastName}/>
                     </div>
-                    <div className="container-input">
+                    <div className="User__container-input">
                         <label htmlFor="email">Email:</label>
-                        <input id="email" className="CamposEntrada" type="email" name="email" readOnly="readOnly" defaultValue={email}/>
+                        <input id="email" className="User__CamposEntrada" type="email" name="email" readOnly="readOnly" defaultValue={email}/>
                     </div>
-                    <div className= "container-input">
+                    <div className="User__container-input">
                         <label htmlFor="edad">Edad:</label>
-                        <input id="edad" className="CamposEntrada CampoEntradaPass" type="number" name="edad" readOnly="readOnly" defaultValue={edad} />
+                        <input id="edad" className="User__CamposEntrada CampoEntradaPass" type="number" name="edad" readOnly="readOnly" defaultValue={edad} />
                     </div>
-                    <div className= "container-input">
+                    <div className="User__container-input">
                         <label htmlFor="idUsuario">Id Usuario:</label>
-                        <input id="idUsuario" className="CamposEntrada CampoEntradaPass" type="text" name="idUsuario" readOnly="readOnly" defaultValue={id}/>
+                        <input id="idUsuario" className="User__CamposEntrada CampoEntradaPass" type="text" name="idUsuario" readOnly="readOnly" defaultValue={id}/>
                     </div>
-                    <div className="DivBotonera">
-                        <div className= "BotonAlta">
+                    <div className="User__DivBotonera">
+                        <div className="User__BotonAlta">
                             {/* Ojo el href hace que despues de hacer el onclik, vaya al href, le saco el href */}
-                            <a className ="AHref_submit" >
-                                <button className='Submit' onClick={onClickVolver} > <ins>V</ins>olver</button>
+                            <a className="User__AHref_submit" >
+                                <button className="User__Submit" onClick={onClickVolver} > <ins>V</ins>olver</button>
                             </a>
                         </div>
-                        {/* <!-- <div className= "BotonAlta">
-                            <a className ="AHref_submit Submit" href="../../index.html"><button type="submit" ><ins>C</ins>ancelar</button></a>
+                        {/* <!-- <div className="User__BotonAlta">
+                            <a className="User__AHref_submit Submit" href="../../index.html"><button type="submit" ><ins>C</ins>ancelar</button></a>
                         </div> --> */}
                     </div>
                 </div>
