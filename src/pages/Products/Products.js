@@ -19,6 +19,10 @@ const Products = () => {
     //Defino estados necesarios
     const [arrayProductos, setArrayProductos]  = useState([]);
     const [arrayCarrito, setArrayCarrito]  = useState([]);
+    const [totalCarrito, setTotalCarrito] = useState(0);
+    const [cantTotArticulos, setCantTotArticulos] = useState(0);
+
+
     // let arrProd = []
     //Creo el Arreglo para guardar los productos que va mandando al carrito
     let myCart = []
@@ -44,6 +48,7 @@ const Products = () => {
             //voy a la ventana de Loguin
             alert ("¡¡No hay usuario Logueado!! \n\n Para utilizar esta Sección deberá Iniciar Seción.")
             //Vuelvo al Login para que se loguee
+            //Falta usar el navigate y forzar que pase por ahi al menos 1 vez
             window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
         } else {
            
@@ -100,6 +105,7 @@ const Products = () => {
     const getCarritoUsuarioLoguedo = () => {
         
         try {
+            alert("Aca deberia estar yendo al backend a recuperar los productos del carrito de usuario logueado")
             console.log ("Aca debería ir a recuperar el carrito del usuario loguedo y acto seguido si hay halgo renderizarlo")
             //Recupero el Carrito del usuario por si hubiese tenido alguno
             //   2 Evaluo si tengo carrito para el usuario activo ----------------------- 
@@ -133,6 +139,52 @@ const Products = () => {
         }
     }
 
+    const CalculaTotalCarrito = () =>{
+        alert ("PASANDO POR CalcularTotalCarrito")
+        let cantTotArticulos = 0;
+        let total = 0;
+        myCart.forEach(cart => {
+            console.log(cart);
+            total += (cart.price * cart.quantity);
+            cantTotArticulos +=  cart.quantity;
+        });
+        setTotalCarrito(total)
+        setCantTotArticulos(cantTotArticulos)
+    }
+
+    const onClickComprar = (pObjProd, pIdProd) => {
+        alert("PASANDO POR onClickComprar")
+        console.log("PASANDO POR el onClickComprar")
+        const product = myCart.find(product => product.id === pIdProd); //y recupero el objeto del carrito de ese producto
+        //si ese producto.id ya esta en el carrito?
+        if(product) {
+            console.log ("Ya esta el articulo en el carrito --> sumo 1")
+            const index = myCart.indexOf(product);  //obtento el indice 
+            product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
+            myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
+        } else {
+            const productToCart = {
+                // img: img.src,
+                // name: prod.name,
+                // price,
+                // id,
+                // quantity: 1
+                img: pObjProd.photo, 
+                name: pObjProd.name,
+                price: pObjProd.price,
+                id: pIdProd,
+                quantity:1
+            };
+            console.log ("No estaba el articulo en el carrito --> lo agrego")
+            // agrego el producto nuevo en el carrito
+            myCart.push(productToCart);
+        }
+        console.log(myCart)
+        CalculaTotalCarrito();
+        setArrayCarrito(myCart);  //==> esto deberia hacer que renderice el componente de nuevo 
+                                  // renderCartProducts();
+    }
+
     //Precondición siempre que entra a este componente hay un usuario logueado con Token activo.
     useEffect(() => {
          //recupero valores del storage primero
@@ -162,7 +214,7 @@ const Products = () => {
                     <div className="Prd__principalWrapper">
                         {/* <!-- <h2>Acá va la lista de los Pédis</h2> --> */}
                         <ul id='products-container'>
-                            {alert("PASO POR ACA")}
+                            {/* {alert("PASO POR ACA")} */}
                             {console.log("ACA VA EL arrProd")}
                             {console.log("Longitud del ESTADO arrayProductos: --> " + arrayProductos.length)}
                             {arrayProductos.map( ( p, i)  => 
@@ -174,29 +226,12 @@ const Products = () => {
                                 <span>{p.name}</span>
                                 <span className="Prd__Dsc">{p.description}</span>
                                 <span>$ {p.price}</span>
-                                <button>Comprar</button>
+                                <button onClick={() => onClickComprar(p, p.id)} >Comprar</button>
                             </li> 
                             )}
                         </ul>
 
-                        {/* {Products.map( (u, i) => <tr key={i}>
-                        <td>{u?._id}</td>
-                        <td>{u?.firstName}</td>
-                        <td>{u?.lastName}</td>
-                        <td>{u?.age}</td>
-                        <td>{u?.email}</td>
-                        <td><button onClick={() => showUser({ id: u?._id})}>show</button></td>
-                        <td>
-                            <input
-                                type='checkbox'
-                                checked={u?.enabled}
-                                onChange={(e) => enableDisableUser({id:u?._id, e}) }
-                            />
-                        </td>
-                        </tr>
-                        )}
-                     */}
-{/*                                                 
+                        {/*                                                 
                         <ul id='products-container'>
                             <li>
                                 <div>
@@ -238,10 +273,22 @@ const Products = () => {
                         </p> --> */}
                         <div className="Prd__cart-wrapper">
                             <div id='cart-list'>
-                                
+                                {arrayCarrito.map( (p, i) => 
+                                    <div className="Prd__cart-item">
+                                        <div className="Prd__cart-item-content">
+                                            <div>
+                                                <img className="Prd__Img-Prod-Carri" 
+                                                     src={p.img} alt={p.name}/>
+                                            </div>
+                                            <span>- {p.name}  - ($ {p.price})</span>
+                                        </div>
+                                        <span>$758</span>
+                                    </div>
+                                )}  
                             </div>
-                                {/* <!-- Aca van a ir los renderizados --> */}
+                             {/* <!-- Aca van a ir los renderizados --> */}
 
+                            
                             {/* -- Estos de abjo deberian estar comentados -- */}
                              {/* <!-- <div className="Prd__cart-item">
                                 <div className="Prd__cart-item-content">
@@ -252,7 +299,8 @@ const Products = () => {
                                 </div>
                                 <span>$758</span>
                             </div> --> */}
-                            {/* <!--<div className="Prd__cart-item">
+                            {/* <!--
+                            <div className="Prd__cart-item">
                                 <div className="Prd__cart-item-content">
                                     <div className="Prd__item-img">
                                         <img src="./assets/img/squirtle.png" alt="Squirtle">
