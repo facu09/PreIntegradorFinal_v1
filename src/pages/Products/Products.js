@@ -24,8 +24,10 @@ const Products = () => {
 
 
     // let arrProd = []
-    //Creo el Arreglo para guardar los productos que va mandando al carrito
-    let myCart = []
+    //Creo el Arreglo para guardar los productos que va mandando al carrito, ya le asigno el estado 
+    //     para que cuando cambie un estado y renderice el componente no vacie el arreglo
+    //      --> tengo que ver si no puedo eliminar este arreglo y usar solamente el estado
+    let myCart = arrayCarrito
     let myCart1= []
 
      //Evento Click en el boton 'Volver' -- esto no se usa mas -- por ahora -- lo dejo por si lo agrego
@@ -52,7 +54,7 @@ const Products = () => {
             window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
         } else {
            
-            alert ("Ahora si va a recuperar los productos disponibles para la venta con el GET del Backend de Juli");
+            // alert ("Ahora si va a recuperar los productos disponibles para la venta con el GET del Backend de Juli");
              console.log ("Ahora si va a recuperar los productos disponibles para la venta con el GET del Backend de Juli");
             // Recupero del BackEnd de 
             //'/products?limit=5&offset=0', {
@@ -90,7 +92,7 @@ const Products = () => {
 
             //Va a Rendierizar los productos en el DOM
             // renderProductos(arrayProductos);
-            alert("Acá tendria que ir a renderizar los productos disponibles para la venta recien recuperados")
+            console.log("Acá tendria que ir a renderizar los productos disponibles para la venta recien recuperados")
             }
         } catch( error ) {
             alert("Error devuelto por el 'getProductos': " + error);
@@ -105,8 +107,7 @@ const Products = () => {
     const getCarritoUsuarioLoguedo = () => {
         
         try {
-            alert("Aca deberia estar yendo al backend a recuperar los productos del carrito de usuario logueado")
-            console.log ("Aca debería ir a recuperar el carrito del usuario loguedo y acto seguido si hay halgo renderizarlo")
+            console.log ("Aca está yendo ir a recuperar el carrito del usuario loguedo y acto seguido si hay halgo renderizarlo")
             //Recupero el Carrito del usuario por si hubiese tenido alguno
             //   2 Evaluo si tengo carrito para el usuario activo ----------------------- 
             //   alert ("longitu de myCart: " + myCart.length); 
@@ -126,6 +127,8 @@ const Products = () => {
                 //  alert ("va a ir a renderizar el carrito con " + myCart.lenght);
                 // renderCartProducts();
                 // showTotalAmount();
+                setArrayCarrito(myCart); 
+                CalculaTotalCarrito();
 
             } else {
                 // alert ("el carrito arranca vacio ");
@@ -140,7 +143,7 @@ const Products = () => {
     }
 
     const CalculaTotalCarrito = () =>{
-        alert ("PASANDO POR CalcularTotalCarrito")
+        console.log ("PASANDO POR CalcularTotalCarrito")
         let cantTotArticulos = 0;
         let total = 0;
         myCart.forEach(cart => {
@@ -153,7 +156,6 @@ const Products = () => {
     }
 
     const onClickComprar = (pObjProd, pIdProd) => {
-        alert("PASANDO POR onClickComprar")
         console.log("PASANDO POR el onClickComprar")
         const product = myCart.find(product => product.id === pIdProd); //y recupero el objeto del carrito de ese producto
         //si ese producto.id ya esta en el carrito?
@@ -162,23 +164,34 @@ const Products = () => {
             const index = myCart.indexOf(product);  //obtento el indice 
             product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
             myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
+            
+            //y actualizo el estado del carrito
+            setArrayCarrito(myCart)  //actualizo el estado            
+            console.log (myCart);
         } else {
+            console.log("NO esta en el carrito lo agrego")
+            //si ese producto.id NO esta en el carrito
             const productToCart = {
-                // img: img.src,
-                // name: prod.name,
-                // price,
-                // id,
-                // quantity: 1
                 img: pObjProd.photo, 
                 name: pObjProd.name,
                 price: pObjProd.price,
                 id: pIdProd,
                 quantity:1
             };
+
             console.log ("No estaba el articulo en el carrito --> lo agrego")
             // agrego el producto nuevo en el carrito
             myCart.push(productToCart);
         }
+
+        setArrayCarrito(myCart)  //actualizo el estado            
+        console.log (myCart);
+        // //Guardo el estado del Carrito (myCart) en el localStorage para el usuario actual
+        //Guardo el estado del Carrito de usuario logueado (myCart) en el localStorage
+        window.localStorage.setItem('myCart' + lsEmail, JSON.stringify(myCart));
+        //     // ** para recuperarlo despues con:
+        //     //       var data = JSON.parse(localStorage.getItem("myCart"));
+        
         console.log(myCart)
         CalculaTotalCarrito();
         setArrayCarrito(myCart);  //==> esto deberia hacer que renderice el componente de nuevo 
@@ -280,9 +293,10 @@ const Products = () => {
                                                 <img className="Prd__Img-Prod-Carri" 
                                                      src={p.img} alt={p.name}/>
                                             </div>
+                                            <span> {`X ${p.quantity}`}</span>
                                             <span>- {p.name}  - ($ {p.price})</span>
                                         </div>
-                                        <span>$758</span>
+                                        <span>$ {p.price * p.quantity}</span>
                                     </div>
                                 )}  
                             </div>
@@ -320,7 +334,7 @@ const Products = () => {
                             </div> --> */}
                             <div className="Prd__total-items">
                                 <span>
-                                    <strong>Total:</strong> <b id='totalAmount'>$ 0</b>
+                                    <strong>Total:</strong> <b id='totalAmount'>$ {totalCarrito}</b>
                                 </span>
                             </div>
                             <button className="Prod_btnFinalizarCompra" type="button" id='btnFinalizarCompra'>Finalizar compra</button>
