@@ -12,11 +12,14 @@ const Footer = () => {
           </div>  */}
 
           <div className="container-icons">
-              <a href="https://www.facebook.com/kiwihelado/" target="_blank">
+              {/* <a href="https://www.facebook.com/kiwihelado/" target="_blank"> */}
+              <a href="https://www.facebook.com/kiwihelado/">
                   <i className="fab fa-facebook icon-facebook"></i></a>
-              <a href="https://twitter.com/kiwihelados" target="_blank">
+              {/* <a href="https://twitter.com/kiwihelados" target="_blank"> */}
+              <a href="https://twitter.com/kiwihelados">
                   <i className="fab fa-twitter icon-twitter"></i></a>
-              <a href="https://www.instagram.com/kiwi.helados/" target="_blank">
+              {/* <a href="https://www.instagram.com/kiwi.helados/" target="_blank"> */}
+              <a href="https://www.instagram.com/kiwi.helados/">
                   <i className="fab fa-instagram icon-instagram"></i></a>
           </div>
       </div>
