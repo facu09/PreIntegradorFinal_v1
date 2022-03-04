@@ -198,12 +198,12 @@ const Register = () => {
                             <div className="Rgst_BotonAlta" tabIndex="-1">
                                {/* El href lo manejo por el javascript en el evento "onClick" del  */}
                                 <a className="Rgst_AHref_submit" tabIndex="-1" >
-                                    <button id="btnAlta" className="Rgst_Submit" onClick={onClickBtnAlta} type="button" accesskey="a"> <ins>A</ins>lta</button> 
+                                    <button id="btnAlta" className="Rgst_Submit" onClick={onClickBtnAlta} type="button" accessKey="a"> <ins>A</ins>lta</button> 
                                 </a>
                             </div>
                             <div className="Rgst_BotonAlta" tabIndex="-1">
                                 <a className="Rgst_AHref_submit" tabIndex="-1">
-                                    <button id="btnCancelar" className="Rgst_Submit" onClick={onClickBtnCancelar} type="button" accesskey="c"><ins>C</ins>ancelar</button>
+                                    <button id="btnCancelar" className="Rgst_Submit" onClick={onClickBtnCancelar} type="button" accessKey="c"><ins>C</ins>ancelar</button>
                                 </a>
                             </div>
                         </div>

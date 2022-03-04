@@ -244,8 +244,9 @@ const Products = () => {
                             {/* {alert("PASO POR ACA")} */}
                             {console.log("ACA VA EL arrProd")}
                             {console.log("Longitud del ESTADO arrayProductos: --> " + arrayProductos.length)}
+                            {/* Mapeo los productos en 1 card para cada uno */}
                             {arrayProductos.map( ( p, i)  => 
-                            <li>
+                            <li key={i}>
                                 <div>
                                     {/* <img src="./assets/img/squirtle.png" alt="Squirtle"/> */}
                                     <img width="80px" height="80px" src={p.photo} alt="Squirtle"/>
@@ -256,6 +257,7 @@ const Products = () => {
                                 <button onClick={() => onClickComprar(p, p.id)} >Comprar</button>
                             </li> 
                             )}
+                            {/* FIN Mapeo los productos en 1 card para cada uno */}
                         </ul>
 
                         {/*                                                 
@@ -292,8 +294,9 @@ const Products = () => {
                          {/* <!-- Aca van a ir los renderizados --> */}       
                         <div className="Prd__cart-wrapper">
                             <div id='cart-list'>
+
                                 {arrayCarrito.map( (p, i) => 
-                                    <div className="Prd__cart-item">
+                                    <div key={i} className="Prd__cart-item">
                                         <div className="Prd__cart-item-content">
                                             <div>
                                                 <img className="Prd__Img-Prod-Carri" 

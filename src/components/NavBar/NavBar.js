@@ -153,21 +153,21 @@ const NavBar = () => {
                 <nav className="NavBar">
                     <ul className="ListaElementos">
                         <li className="ElementoNav">
-                            <a href="/home#Inicio" accesskey="i"><ins>I</ins>nicio</a>
+                            <a href="/home#Inicio" accessKey="i"><ins>I</ins>nicio</a>
                             {/* No funciona xque no va a la seccion # */}
                             {/* <a onClick={onClickInicio}>Inicio</a> */}
                                 {/* redireccionar de esta manera hacer recargar la pagina */}
                                 {/* FALTAR AVIERGUAR SI ES ASI */}
                         </li>
                         <li className="ElementoNav">
-                            <a href="/home#QuienesSomos" accesskey="q" className="LiQuienesSomos"><ins>Q</ins></a>
+                            <a href="/home#QuienesSomos" accessKey="q" className="LiQuienesSomos"><ins>Q</ins></a>
                         </li>
                         <li className="ElementoNav"> 
                             {/* <!-- <a href="#Productos" className="LiProdcutos">Prod</a> --> */}
-                            <a onClick={() => onClickProducts()} accesskey="r" className="LiProdcutos">P<ins>r</ins>od</a>
+                            <a onClick={() => onClickProducts()} accessKey="r" className="LiProdcutos">P<ins>r</ins>od</a>
                         </li>
                         <li className="ElementoNav">
-                            <a href="/home#Pedidos" accesskey="p" className="liPedidos"><ins>P</ins>ed</a>
+                            <a href="/home#Pedidos" accessKey="p" className="liPedidos"><ins>P</ins>ed</a>
                         </li>
                         <li className="ElementoNav"><a href="/home#Contacto" accessKey='c'><ins>C</ins>ontacto</a></li>
                         <li className="ElementoNav" id="lblUsuario" onClick={() => onClickLblUsuario()}>{usMostrar}</li>
@@ -180,7 +180,7 @@ const NavBar = () => {
                         {/* <!-- El login lo paso a manejar por el evento click del boton dentro del javascript 'index.js' --> */}
                         {/* <li><button id="btnLogin" className="BtnLogin" onClick={onClickLoginLogout}> {btnLogInOut}</button></li>  */}
                         {/* <li><button id="btnLogin" className="BtnLogin" onClick={() => onClickLoginLogout()}> {lsLblBotonLogInOut}</button></li>  */}
-                        <li><button id="btnLogin" className="BtnLogin" onClick={() => onClickLoginLogout()} accesskey="l" > {btnLogInOut}</button></li> 
+                        <li><button id="btnLogin" className="BtnLogin" onClick={() => onClickLoginLogout()} accessKey="l" > {btnLogInOut}</button></li> 
                         {/* onClick={() => navigate('/home')} */}
                     </ul>
                 </nav> 
