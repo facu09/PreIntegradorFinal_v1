@@ -145,8 +145,7 @@ const NavBar = () => {
                 <div className="logo">
                     <a className="ARefLogo" href="/home#Inicio">
                            {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                        <img className="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
-                        {/* <img className="ImagenLogo" src={'../../Imagenes/LogoKiwi.jpg'} alt="LogoKiwi"/>     */}
+                           <img className="ImagenLogo" src={logoKiwi} alt="LogoKiwi"/>    
                     </a>
                     <div className="LogoOpacidad"></div>
                 </div>

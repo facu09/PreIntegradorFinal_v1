@@ -144,15 +144,15 @@ const Products = () => {
 
     const CalculaTotalCarrito = () =>{
         console.log ("PASANDO POR CalcularTotalCarrito")
-        let cantTotArticulos = 0;
+        let cantTotalArticulos = 0;
         let total = 0;
         myCart.forEach(cart => {
             console.log(cart);
             total += (cart.price * cart.quantity);
-            cantTotArticulos +=  cart.quantity;
+            cantTotalArticulos +=  cart.quantity;
         });
         setTotalCarrito(total)
-        setCantTotArticulos(cantTotArticulos)
+        setCantTotArticulos(cantTotalArticulos)
     }
 
     const onClickComprar = (pObjProd, pIdProd) => {
@@ -198,6 +198,20 @@ const Products = () => {
                                   // renderCartProducts();
     }
 
+    const onClickFinalizarCompra = () =>  {
+        //El cliente esta finalizando la compra
+       
+        alert("¡¡ Gracias '" + lsEmail + "' por comprar en KIWI !! \nEl Total de su compra es:     $ " + totalCarrito + ". \nCon un total de  '" + cantTotArticulos + "'  artículos." );
+
+        myCart = [];
+        setArrayCarrito(myCart);
+        CalculaTotalCarrito();
+       
+         //blanqueo el localStorage del carrito
+        //  localStorage.setItem("myCart" + lsEmailUsLogueado, myCart);
+         localStorage.removeItem("myCart" + lsEmail, myCart);
+    }
+
     //Precondición siempre que entra a este componente hay un usuario logueado con Token activo.
     useEffect(() => {
          //recupero valores del storage primero
@@ -234,7 +248,7 @@ const Products = () => {
                             <li>
                                 <div>
                                     {/* <img src="./assets/img/squirtle.png" alt="Squirtle"/> */}
-                                    <img width="100" height="100" src={p.photo} alt="Squirtle"/>
+                                    <img width="80px" height="80px" src={p.photo} alt="Squirtle"/>
                                 </div>
                                 <span>{p.name}</span>
                                 <span className="Prd__Dsc">{p.description}</span>
@@ -257,15 +271,6 @@ const Products = () => {
                             </li>
                             <li>
                                 <div>
-                                    <img src="./assets/img/takara.png" alt="Balbasaur"/>
-                                </div>
-                                <span>El legendario</span>
-                                <span className="Prd__Dsc">Descripción del legedario .</span>
-                                <span>125$</span>
-                                <button>Comprar</button>
-                            </li>
-                            <li>
-                                <div>
                                     <img src="./assets/img/pinguino.png" alt="Pinguino"/>
                                 </div>
                                 <span>el pajaro caniggia</span>
@@ -284,6 +289,7 @@ const Products = () => {
                             Estaría piola en el navbar, tipo sidebar se abra... <br>
                             Pero como dicen las malas lenguas: "Mientras funcione"
                         </p> --> */}
+                         {/* <!-- Aca van a ir los renderizados --> */}       
                         <div className="Prd__cart-wrapper">
                             <div id='cart-list'>
                                 {arrayCarrito.map( (p, i) => 
@@ -299,10 +305,7 @@ const Products = () => {
                                         <span>$ {p.price * p.quantity}</span>
                                     </div>
                                 )}  
-                            </div>
-                             {/* <!-- Aca van a ir los renderizados --> */}
-
-                            
+                            </div>   
                             {/* -- Estos de abjo deberian estar comentados -- */}
                              {/* <!-- <div className="Prd__cart-item">
                                 <div className="Prd__cart-item-content">
@@ -317,15 +320,6 @@ const Products = () => {
                             <div className="Prd__cart-item">
                                 <div className="Prd__cart-item-content">
                                     <div className="Prd__item-img">
-                                        <img src="./assets/img/squirtle.png" alt="Squirtle">
-                                    </div>
-                                    <span>- Coso de vamo a calmarno</span>
-                                </div>
-                                <span>$758</span>
-                            </div>
-                            <div className="Prd__cart-item">
-                                <div className="Prd__cart-item-content">
-                                    <div className="Prd__item-img">
                                         <img src="./assets/img/balbasaur.png" alt="Balbasaur">
                                     </div>
                                     <span>- La Tortuga Franklin</span>
@@ -337,7 +331,8 @@ const Products = () => {
                                     <strong>Total:</strong> <b id='totalAmount'>$ {totalCarrito}</b>
                                 </span>
                             </div>
-                            <button className="Prod_btnFinalizarCompra" type="button" id='btnFinalizarCompra'>Finalizar compra</button>
+                            <button className="Prod_btnFinalizarCompra" type="button" id='btnFinalizarCompra' 
+                                    onClick={() => onClickFinalizarCompra()} >Finalizar compra</button>
                         </div>
                     </div>
                 </section>

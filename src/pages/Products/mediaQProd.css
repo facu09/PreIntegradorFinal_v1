@@ -9,10 +9,10 @@
     /*  porque esta bien hecho con % muchas de las coas */ 
     .Prd__Card{
         width: 90%;
-        padding: 1.5% 0% 4% 0%;
+        /* padding: 1.5% 0% 4% 0%; */
     }    
     .Prd__CntNuevaCuenta {
-        width: 80%;
+        width: 100%;
     }
 
     .Prd__CntNuevaCuenta p{
@@ -25,7 +25,7 @@
     }
     .Prd__principalWrapper {
         width: 90%;
-        padding: 4% 1%;
+        /* padding: 1% 1%; */
     }    
 }
 
@@ -35,16 +35,16 @@
         height: 65px; 
     }
     .Prd__Card{
-        padding: 1.5% 0% 4% 0%;
+        /* padding: 1.5% 0% 4% 0%; */
         width: 87%;
     }
     .Prd__CntNuevaCuenta {
-        width: 82%;
+        width: 100%;
     }
     /* el titulo del fomr */
     .Prd__CntNuevaCuenta p{
         /* margin-top: 10px; */
-        font-size:2em;
+        font-size:1.7em;
     }
     .Prd__FormCuenta label {
         font-size: 1.1em;
@@ -61,7 +61,7 @@
     }
     .Prd__principalWrapper {
         width: 85%;
-        padding: 5% 1%;
+        /* padding: 5% 1%; */
     }
 }
 
@@ -78,7 +78,7 @@
         width: 90%;
     }
     .Prd__CntNuevaCuenta {
-        width: 88%;
+        width: 100%;
     }
     /* el titulo del fomr */
     .Prd__CntNuevaCuenta p{

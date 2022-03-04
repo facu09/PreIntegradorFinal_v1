@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
        {/* <!-- segunda linea del footer --> */}
       {/* <!-- <div className="Contenedor-Version">ver 1.5</div> --> */}
-      <div className="conteiner-linea1-footer Contenedor-Version">ver 1.12</div>
+      <div className="conteiner-linea1-footer Contenedor-Version">ver 1.31</div>
   </footer>
 
   {/* <!-- segunda linea del footer --> */}
