@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import './App.css';   //css 
 // importo componentes
-import Toast from './components/Toast/Toast'
+// import Toast from './components/Toast/Toast'
 // import NavBar from './components/NavBar/NavBar';
 // import Footer from './components/Footer/Footer';
 import Router from './Router/Router';
 
 function App() {
 
-  const { message, isError, loading } = useSelector (sotre => sotre.apiReducer);
+  // const { message, isError, loading } = useSelector (sotre => sotre.apiReducer);
 
   return (
     <div className="App">
