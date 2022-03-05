@@ -16,6 +16,14 @@ footer{
     padding-bottom: 0.90rem;
 }
 
+@media (max-width: 455px) {
+    footer{
+      /* Agrego padings para que quede mas elegante */
+     padding-top: 5.5rem;
+     padding-bottom: 1.2rem;
+    }
+ }
+
 .conteiner-linea1-footer{
     margin: 0%;
     display: flex;

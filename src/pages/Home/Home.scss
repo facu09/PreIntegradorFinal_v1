@@ -23,12 +23,14 @@
         padding: 0;
 }
 
+//Portada con la foto de Kiwi
 .Portada{
     position: absolute;
     top:0px;
     left: 0px;
     width: 100%;
-    height: 70vh;
+    // height:70vh;
+    height: 70%;
     background-image:url(../../Imagenes/KiwiHeader.jpg);
     /* object-fit: cover; */
     background-position: center;
@@ -42,7 +44,8 @@
 
 .portada-opacidad{
     width: 100%;
-    height:70vh;
+    // height:70vh;
+    height:100%;
     position: absolute;
     background-color: rgba(0, 0, 0,  0.50);
     animation: AniPortadaOpacidad 1500ms ease-in 0s 1;
@@ -55,7 +58,8 @@
 .sect-history {
     /* margin-top: 10px; */
     /* react modificacion */
-    margin-top: 400px;
+    // margin-top: 400px;
+    margin-top: 60vh;
     width: 100%;
     display: flex;
     justify-content: center;
