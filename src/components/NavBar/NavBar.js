@@ -126,8 +126,8 @@ const NavBar = () => {
     //     navigate('/home')
     // }
 
-    const onClickProducts = () => { 
-        // alert ("Esta queriendo ir a la seccion Productos, El token es " + lsToken);
+    const onClickComprar = () => { 
+        // alert ("Esta queriendo ir a la seccion Comprar (Componente Products.js), El token es " + lsToken);
         //Si tiene token Y es <> de 'undefined' ==>  hay usuario logueado
         if ((lsToken) && !(lsToken === 'undefined')) {
             // window.location.replace("/User");  //deberia usar el navigate para que no recargue la pagina en el navegador
@@ -164,7 +164,7 @@ const NavBar = () => {
                         </li>
                         <li className="ElementoNav"> 
                             {/* <!-- <a href="#Productos" className="LiProdcutos">Prod</a> --> */}
-                            <a onClick={() => onClickProducts()} accessKey="r" className="LiProdcutos">Comp<ins>r</ins>ar</a>
+                            <a onClick={() => onClickComprar()} accessKey="r" className="LiProdcutos">Comp<ins>r</ins>ar</a>
                         </li>
                         <li className="ElementoNav">
                             <a href="/home#Pedidos" accessKey="p" className="liPedidos"><ins>P</ins>ed</a>
