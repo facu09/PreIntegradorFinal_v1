@@ -235,7 +235,11 @@ const Products = () => {
          //Armo copia local del Estado del Arreglo del Carrito, xque no puedo laburar sobre el estado
          let laCarrito = arrayCarrito
         
-        laCarrito[pIndex].quantity--
+        if (laCarrito[pIndex].quantity >= 1) {
+            laCarrito[pIndex].quantity-- }
+        else {
+            // alert ("no se puede restar")
+        }
         // product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
         // myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
         console.log (laCarrito);
