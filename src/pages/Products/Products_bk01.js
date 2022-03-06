@@ -26,21 +26,21 @@ const Products = () => {
     // let arrProd = []
     //Creo el Arreglo para guardar los productos que va mandando al carrito, ya le asigno el estado 
     //     para que cuando cambie un estado y renderice el componente no vacie el arreglo
-    //      --> FALTA: tengo que ver si no puedo eliminar este arreglo y usar solamente el estado
+    //      --> tengo que ver si no puedo eliminar este arreglo y usar solamente el estado
     let myCart = arrayCarrito
     let myCart1= []
 
      //Evento Click en el boton 'Volver' -- esto no se usa mas -- por ahora -- lo dejo por si lo agrego
-    //  const onClickVolverHome = () => {
-    //     // alert ("Entró en el onClick del Boton Volver Home.  Con el window.location.replace  --> recarga la pagina y con el navigate no.");
-    //     // alert ("Ahora va a usar el window.location.replace  --> y mirá arriba -->  recarga la pagina!! ojo --> mejor usar el navigate('/home')")
-    //     // window.location.replace("/home");  //deberi usar el navigate
+     const onClickVolverHome = () => {
+        // alert ("Entró en el onClick del Boton Volver Home.  Con el window.location.replace  --> recarga la pagina y con el navigate no.");
+        // alert ("Ahora va a usar el window.location.replace  --> y mirá arriba -->  recarga la pagina!! ojo --> mejor usar el navigate('/home')")
+        // window.location.replace("/home");  //deberi usar el navigate
 
-    //     // alert ("Con el navigate NO recarga la pagina, mirá arriba....")
-    //     console.log ("Con el navigate NO recarga la pagina, mirá arriba....")
-    //     // navigate('/home');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
-    //     navigate('/home') //pruebo esto con el # a ver si anda
-    // }
+        // alert ("Con el navigate NO recarga la pagina, mirá arriba....")
+        console.log ("Con el navigate NO recarga la pagina, mirá arriba....")
+        // navigate('/home');   //--> PERO NO ESTA ANDANDO CUANDO HABILITO LA SENENCIA DE DECLARACIÓN DEL NAVIGATE  
+        navigate('/home') //pruebo esto con el # a ver si anda
+    }
 
     // Procedimiento: Recupera los Productos del BackEnd
     const getProductos = async () => {
@@ -96,7 +96,7 @@ const Products = () => {
             }
         } catch( error ) {
             alert("Error devuelto por el 'getProductos': " + error);
-            if (error == "TypeError: Cannot read properties of undefined (reading 'data')") {
+            if (error = "TypeError: Cannot read properties of undefined (reading 'data')") {
                 alert ("Seguramente el Token ha expirado o no esta funcionando el BackEnd. \n Pruebe Loguearse nuevamente!")
                 window.location.replace("../Login/login.html")
             }
@@ -115,7 +115,7 @@ const Products = () => {
             //Si hay un carrito con cosas pre-existente para el usuario
             console.log ("myCart1 ------------------------> abajo");
             console.log (myCart1);
-            if (myCart1 !== null) {
+            if (myCart1 != null) {
                 //se lo asigno al carrito actua (myCart)
                 myCart = myCart1;
                 console.log ("myCart ------------------------> abajo");
@@ -133,6 +133,9 @@ const Products = () => {
             } else {
                 // alert ("el carrito arranca vacio ");
             }; 
+
+
+
         } 
         catch( error ) {
             alert("Error devuelto por el 'getCarritoUsuario': " + error);
@@ -190,66 +193,9 @@ const Products = () => {
         //     //       var data = JSON.parse(localStorage.getItem("myCart"));
         
         console.log(myCart)
-        CalculaTotalCarrito(); /*Actualiza el esta totalCarrito --> renderiza esa parte de la pantalla  */
+        CalculaTotalCarrito();
         setArrayCarrito(myCart);  //==> esto deberia hacer que renderice el componente de nuevo 
                                   // renderCartProducts();
-    }
-
-    const onClickAdd1 = (pIndex) => {
-    // Funcion que le suma 1 al elemento del carrito, del arreglo pArrayCarrito en el indice pIndex
-    /*pIndex es Indice dentro del arreglo del carrito en la posción que hay q sumar 1  */
-    //  En teoria el parametro 'pArrayCarrito' pasa por Valor 
-    //El producto siempre va a estar en el carrito: /*No haria falta buscar xque esto pasando el indice del arreglo al cual le tengo que sumar 1 */     
-        console.log("PASANDO POR el Add'1' al articulo del carrito del cual apretó el boton")
-        console.log(arrayCarrito)
-        //Armo copia local del Estado del Arreglo del Carrito, xque no puedo laburar sobre el estado
-        let laCarrito = arrayCarrito
-        
-        // const index = myCart.indexOf(product);  //obtento el indice 
-        laCarrito[pIndex].quantity++
-        // product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
-        // myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
-        console.log(laCarrito);
-
-        // //Guardo el estado del Carrito (myCart) en el localStorage para el usuario actual
-        //Guardo el estado del Carrito de usuario logueado (myCart) en el localStorage
-        window.localStorage.setItem('myCart' + lsEmail, JSON.stringify(laCarrito));
-        //     // ** para recuperarlo despues con:
-        //     //       var data = JSON.parse(localStorage.getItem("myCart"));
-
-        //Actualizo el estado del carrito
-        setArrayCarrito(laCarrito)   //==> esto deberia hacer que renderice el componente de nuevo 
-                                         // renderCartProducts();        
-        CalculaTotalCarrito(); /*Actualiza el estado de totalCarrit --> renderiza de nuevo el componente mostrando ese estado */
-    }
-
-    const onClickSubtract1 = (pIndex) => {
-    // Funcion que le resta 1 al elemento del carrito, del arreglo pArrayCarrito en el indice pIndex
-    //pIndex es Indice dentro del arreglo del carrito en la posción que hay q Restar 1  */
-    //El producto.siempre esta en el carrito     
-        console.log("PASANDO POR el Restar'1' al articulo del carrito del cual apretó el boton")
-        /*No haria falta buscar xque esto pasando el indice del arreglo al cual le tengo que sumar 1 */
-        /*const product = myCart.find(product => product.id === pIdProd);*/  //y recupero el objeto del carrito de ese producto
-        // const index = myCart.indexOf(product);  //obtento el indice 
-        
-         //Armo copia local del Estado del Arreglo del Carrito, xque no puedo laburar sobre el estado
-         let laCarrito = arrayCarrito
-        
-        laCarrito[pIndex].quantity--
-        // product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
-        // myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
-        console.log (laCarrito);
-
-        // //Guardo el estado del Carrito (myCart) en el localStorage para el usuario actual
-        //Guardo el estado del Carrito de usuario logueado (myCart) en el localStorage
-        window.localStorage.setItem('myCart' + lsEmail, JSON.stringify(laCarrito));
-        //     // ** para recuperarlo despues con:
-        //     //       var data = JSON.parse(localStorage.getItem("myCart"));
-
-        //Actualizo el estado del carrito
-        setArrayCarrito(laCarrito)   //==> esto deberia hacer que renderice el componente de nuevo 
-                                            // renderCartProducts();        
-        CalculaTotalCarrito(); /*Actualiza el estado de totalCarrit --> renderiza de nuevo el componente mostrando ese estado */
     }
 
     const onClickFinalizarCompra = () =>  {
@@ -308,7 +254,7 @@ const Products = () => {
                                 <span>{p.name}</span>
                                 <span className="Prd__Dsc">{p.description}</span>
                                 <span>$ {p.price}</span>
-                                <button className='Prd__BtnComprar' onClick={() => onClickComprar(p, p.id)} >Comprar</button>
+                                <button onClick={() => onClickComprar(p, p.id)} >Comprar</button>
                             </li> 
                             )}
                             {/* FIN Mapeo los productos en 1 card para cada uno */}
@@ -338,7 +284,6 @@ const Products = () => {
                     </div>
                 </section>
 
-                {/* SECCION DEL CARRITO: LO QUE ESTA COMPRANDO EL USUARIO LOGUEADO */}
                 <section className="Prd__cartList" id="cartList">
                     <div className="Prd__principalWrapper">
                         <h2>Productos que están en el Carrito:</h2>
@@ -357,9 +302,7 @@ const Products = () => {
                                                 <img className="Prd__Img-Prod-Carri" 
                                                      src={p.img} alt={p.name}/>
                                             </div>
-                                            <span className="Prd__Cantidad"> {`x ${p.quantity} u.`}</span>
-                                            <button className='Prd__BtnAdd' onClick={() => onClickAdd1(i)}>+</button>
-                                            <button className='Prd__BtnSubtrac' onClick={() => onClickSubtract1(i)}>-</button>
+                                            <span> {`X ${p.quantity}`}</span>
                                             <span>- {p.name}  - ($ {p.price})</span>
                                         </div>
                                         <span>$ {p.price * p.quantity}</span>
@@ -391,7 +334,7 @@ const Products = () => {
                                     <strong>Total:</strong> <b id='totalAmount'>$ {totalCarrito}</b>
                                 </span>
                             </div>
-                            <button id='btnFinalizarCompra' 
+                            <button className="Prod_btnFinalizarCompra" type="button" id='btnFinalizarCompra' 
                                     onClick={() => onClickFinalizarCompra()} >Finalizar compra</button>
                         </div>
                     </div>

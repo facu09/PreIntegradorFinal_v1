@@ -12,6 +12,7 @@ const Footer = () => {
           </div>  */}
 
           <div className="container-icons">
+              {/* El target="_blank" es un warning para react + vercel pero lo uso igual xque me */}
               <a href="https://www.facebook.com/kiwihelado/" target="_blank">
               {/* <a href="https://www.facebook.com/kiwihelado/"> */}
                   <i className="fab fa-facebook icon-facebook"></i></a>
@@ -25,7 +26,7 @@ const Footer = () => {
       </div>
        {/* <!-- segunda linea del footer --> */}
       {/* <!-- <div className="Contenedor-Version">ver 1.5</div> --> */}
-      <div className="conteiner-linea1-footer Contenedor-Version">ver 1.53</div>
+      <div className="conteiner-linea1-footer Contenedor-Version">ver 1.757</div>
   </footer>
 
   {/* <!-- segunda linea del footer --> */}
@@ -37,7 +38,7 @@ const Footer = () => {
     {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    */}
     {/* Esto ya es es un js */}
     {/* <script src="./index.js"></script> */}
-  </div>;
+  </div>
 };
 
 export default Footer;

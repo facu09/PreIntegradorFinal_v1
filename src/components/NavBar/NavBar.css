@@ -176,7 +176,7 @@ ol, ul {
     /* color:rgb(70, 48, 33);   */
     /* color:rgb(51, 36, 25);  */
     color: var(--color-letra-boton);
-    border-color: rgb(153, 153, 153);
+    border-color: var(--color-boton-border);
     /* background-color: rgba(248, 255, 239, 0.5); */
     /* background-color: rgb(134, 170, 115); */
     background-color: var(--color-boton);
@@ -198,7 +198,7 @@ ol, ul {
     content:"uienes Somos";
 }
 .LiProdcutos::after {
-    content:"uctos";
+    content:"";
 }
 .liPedidos::after{
     content: "idos";

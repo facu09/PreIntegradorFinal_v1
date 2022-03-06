@@ -164,7 +164,7 @@ const NavBar = () => {
                         </li>
                         <li className="ElementoNav"> 
                             {/* <!-- <a href="#Productos" className="LiProdcutos">Prod</a> --> */}
-                            <a onClick={() => onClickProducts()} accessKey="r" className="LiProdcutos">P<ins>r</ins>od</a>
+                            <a onClick={() => onClickProducts()} accessKey="r" className="LiProdcutos">Comp<ins>r</ins>ar</a>
                         </li>
                         <li className="ElementoNav">
                             <a href="/home#Pedidos" accessKey="p" className="liPedidos"><ins>P</ins>ed</a>
