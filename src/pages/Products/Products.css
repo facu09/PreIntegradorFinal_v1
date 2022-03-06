@@ -93,11 +93,19 @@
     /* margin: 0px; */
 }
 
-.Prd__FormCuenta{
-    width: 99%;
-    /* margin-top: 1.5em;
-    padding:  3% 5% 1% 5% ; */
-    /* font-size: 1em;  tamaño letra cajas texto */
+
+.Prd__Conteiner_Busqueda label{
+  color: var(--color-letra-secciones);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-right: 0.7rem;
+}
+
+.Prd__Conteiner_Busqueda input{
+  /* color: var(--color-letra-secciones); */
+  font-size: 1.3rem;
+  font-weight: 400;
+  /* border-radius: 0.4rem; */
 }
 
 .Prd__FormCuenta label {

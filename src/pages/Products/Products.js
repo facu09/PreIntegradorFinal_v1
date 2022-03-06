@@ -21,6 +21,7 @@ const Products = () => {
     const [arrayCarrito, setArrayCarrito]  = useState([]);
     const [totalCarrito, setTotalCarrito] = useState(0);
     const [cantTotArticulos, setCantTotArticulos] = useState(0);
+    const [cadenaBusqueda, setCadenaBusqueda] = useState('');
 
 
     // let arrProd = []
@@ -42,6 +43,10 @@ const Products = () => {
     //     navigate('/home') //pruebo esto con el # a ver si anda
     // }
 
+    const handleCadenaBusquedaChange = (e) => {
+        setCadenaBusqueda(e.target.value);
+    } 
+
     // Procedimiento: Recupera los Productos del BackEnd
     const getProductos = async () => {
     try {
@@ -51,7 +56,8 @@ const Products = () => {
             alert ("¡¡No hay usuario Logueado!! \n\n Para utilizar esta Sección deberá Iniciar Seción.")
             //Vuelvo al Login para que se loguee
             //Falta usar el navigate y forzar que pase por ahi al menos 1 vez
-            window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
+            // window.location.replace("../../pages/Login/login.html"); // subo 2 niveles y estoy en el raiz
+            navigate('/login')
         } else {
            
             // alert ("Ahora si va a recuperar los productos disponibles para la venta con el GET del Backend de Juli");
@@ -59,7 +65,7 @@ const Products = () => {
             // Recupero del BackEnd de 
             //'/products?limit=5&offset=0', {
             // const response = await fetch(`${baseURL}/products?limit=15&offset=6`, { // traigo los 15 primeros productos salteando los 6 primeros
-            const response = await fetch(`${baseURL}/products?limit=9&offset=5`, {   //traigo los 9 productos, empezando del 5to 
+            const response = await fetch(`${baseURL}/products?limit=15&offset=5`, {   //original: traigo los 9 productos, empezando del 5to 
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${lsToken}`
@@ -95,10 +101,14 @@ const Products = () => {
             console.log("Acá tendria que ir a renderizar los productos disponibles para la venta recien recuperados")
             }
         } catch( error ) {
-            alert("Error devuelto por el 'getProductos': " + error);
+           
             if (error == "TypeError: Cannot read properties of undefined (reading 'data')") {
-                alert ("Seguramente el Token ha expirado o no esta funcionando el BackEnd. \n Pruebe Loguearse nuevamente!")
-                window.location.replace("../Login/login.html")
+                alert ("El Token ha expirado o no esta funcionando el BackEnd. \n¡Pruebe Loguearse nuevamente!")
+                // window.location.replace("../Login")
+                navigate('/login')
+            }
+            else {
+                alert("Error devuelto por el 'getProductos': " + error);
             }
         }
     }
@@ -294,6 +304,12 @@ const Products = () => {
             </div> --> */}
             <div className="Prd__CntNuevaCuenta">
                 <p>Productos Disponibles:</p>
+                
+                <div className="Prd__Conteiner_Busqueda">
+                    <label for="CadenaBusqueda">Busqueda: </label>
+                        <input id = "CadenaBusqueda" className="Prd__InputBusquda" onChange={handleCadenaBusquedaChange} placeholder="Ingrese un producto o cadena a buscar" autoFocus disabled/>
+                </div>
+
                 {/* <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div--> */}
                 <section className="Prd__listProducts" id="listProducts">
                     <div className="Prd__principalWrapper">
@@ -328,15 +344,6 @@ const Products = () => {
                                 <span className="Prd__Dsc">Descripción del Limón .</span>
                                 <span>758$</span>
                                 <button>Comprar</button>
-                            </li>
-                            <li>
-                                <div>
-                                    <img src="./assets/img/pinguino.png" alt="Pinguino"/>
-                                </div>
-                                <span>el pajaro caniggia</span>
-                                <span>912$</span>
-                                <button className="Prd__disabled">Comprar</button>
-                                <div className="Prd__outStock"><strong>sin stock. voló</strong></div>
                             </li>
                         </ul> */}
                     </div>
@@ -379,16 +386,6 @@ const Products = () => {
                                     <span>- Coso de vamo a calmarno</span>
                                 </div>
                                 <span>$758</span>
-                            </div> --> */}
-                            {/* <!--
-                            <div className="Prd__cart-item">
-                                <div className="Prd__cart-item-content">
-                                    <div className="Prd__item-img">
-                                        <img src="./assets/img/balbasaur.png" alt="Balbasaur">
-                                    </div>
-                                    <span>- La Tortuga Franklin</span>
-                                </div>
-                                <span>$125</span>
                             </div> --> */}
                             <div className="Prd__total-items">
                                 <span>

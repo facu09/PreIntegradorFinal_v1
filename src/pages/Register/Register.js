@@ -20,7 +20,7 @@ const Register = () => {
     
     const baseURL = 'https://back-sandbox.herokuapp.com/api';
 
-    //Definicioes y vinculos a elementos del DOM
+    //Definicioes y vinculos a elementos del DOM para poner foco de ser necesario
     const inpEmail = document.getElementById('email');
     const inpName = document.getElementById('name');
     const inpLastName = document.getElementById('lastName');
