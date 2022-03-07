@@ -256,33 +256,47 @@ const Products = () => {
     // Funcion que le resta 1 al elemento del carrito, del arreglo pArrayCarrito en el indice pIndex
     //pIndex es Indice dentro del arreglo del carrito en la posción que hay q Restar 1  */
     //El producto.siempre esta en el carrito     
-        console.log("PASANDO POR el Restar'1' al articulo del carrito del cual apretó el boton")
+        console.log("PASANDO POR el Restar'1' al articulo del carrito del cual apretó el boton, el indice es: --> " + pIndex)
         /*No haria falta buscar xque esto pasando el indice del arreglo al cual le tengo que sumar 1 */
         /*const product = myCart.find(product => product.id === pIdProd);*/  //y recupero el objeto del carrito de ese producto
         // const index = myCart.indexOf(product);  //obtento el indice 
+        let laCarrito = arrayCarrito
+        let laCarritoTmp = arrayCarrito
+
+        //Validacion Previa para que no se rompa: xque no esta actualizando la pantalla cuando elimino 1 elemento del arreglo con el splice
+        if (pIndex <= arrayCarrito.length-1) {
+            //Armo copia local del Estado del Arreglo del Carrito, xque no puedo laburar sobre el estado
+            
+            
+            if (laCarrito[pIndex].quantity >= 1) {
+                laCarrito[pIndex].quantity-- }
+            else {
+                // alert ("no se puede restar")
+                // .splice(indiceDesde, cuantosBorrar, quéAgregar)
+                laCarrito.splice((pIndex), 1)
+                console.log(laCarrito)
+
+            }
+            // product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
+            // myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
+            console.log (laCarrito);
+
+            // //Guardo el estado del Carrito (myCart) en el localStorage para el usuario actual
+            //Guardo el estado del Carrito de usuario logueado (myCart) en el localStorage
+            window.localStorage.setItem('myCart' + lsEmail, JSON.stringify(laCarrito));
+            //     // ** para recuperarlo despues con:
+            //     //       var data = JSON.parse(localStorage.getItem("myCart"));
+
+            //Actualizo el estado del carrito
+            setArrayCarrito(laCarrito)   //==> esto deberia hacer que renderice el componente de nuevo 
+                                                // renderCartProducts();        
+            CalculaTotalCarrito(); /*Actualiza el estado de totalCarrit --> renderiza de nuevo el componente mostrando ese estado */
         
-         //Armo copia local del Estado del Arreglo del Carrito, xque no puedo laburar sobre el estado
-         let laCarrito = arrayCarrito
-        
-        if (laCarrito[pIndex].quantity >= 1) {
-            laCarrito[pIndex].quantity-- }
-        else {
-            // alert ("no se puede restar")
+        } else {
+            console.log ("Pasando por anomalia quieriendo borrar 1 elemento por fuera del arreglo");
+            setArrayCarrito(laCarrito) 
         }
-        // product.quantity++;  //le sumo 1 a la cantidad del objeto Producto del carrito que acabo de buscar
-        // myCart[index] = product;  //le meto el elemento en nuevamente en ese indice con la cantidad nueva
-        console.log (laCarrito);
-
-        // //Guardo el estado del Carrito (myCart) en el localStorage para el usuario actual
-        //Guardo el estado del Carrito de usuario logueado (myCart) en el localStorage
-        window.localStorage.setItem('myCart' + lsEmail, JSON.stringify(laCarrito));
-        //     // ** para recuperarlo despues con:
-        //     //       var data = JSON.parse(localStorage.getItem("myCart"));
-
-        //Actualizo el estado del carrito
-        setArrayCarrito(laCarrito)   //==> esto deberia hacer que renderice el componente de nuevo 
-                                            // renderCartProducts();        
-        CalculaTotalCarrito(); /*Actualiza el estado de totalCarrit --> renderiza de nuevo el componente mostrando ese estado */
+        
     }
 
     const onClickFinalizarCompra = () =>  {
@@ -336,7 +350,7 @@ const Products = () => {
                         {/* <!-- <h2>Acá va la lista de los Pédis</h2> --> */}
                         <ul id='products-container'>
                             {/* {alert("PASO POR ACA")} */}
-                            {console.log("ACA VA EL arrProd")}
+                            {console.log("ACA Viene a Renderizar el arrProd")}
                             {console.log("Longitud del ESTADO arrayProductosEncontrados: --> " + arrayProductosEncontrados.length)}
                             {/* Mapeo los productos en 1 card para cada uno */}
                             {arrayProductosEncontrados.map( ( p , i)  => 
@@ -383,7 +397,8 @@ const Products = () => {
                          {/* <!-- Aca van a ir los renderizados --> */}       
                         <div className="Prd__cart-wrapper">
                             <div id='cart-list'>
-
+                            {console.log("ACA Viene a Renderizar el arrayCarrito")}
+                            {console.log("Longitud del ESTADO arrayCarrito: --> " + arrayCarrito.length)}
                                 {arrayCarrito.map( (p, i) => 
                                     <div key={i} className="Prd__cart-item">
                                         <div className="Prd__cart-item-content">
