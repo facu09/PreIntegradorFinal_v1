@@ -51,6 +51,7 @@ const Products = () => {
         let NewArrProdMatch = []
         //Filtro sobre el Arreglos original de todos los productos disponibles
         NewArrProdMatch = arrayProductos.filter((valor) => valor.name.toUpperCase().includes (e.target.value.toUpperCase() ));
+        console.log("ENTRO AL HandleCadenaBusquedaChange.")
         console.log(NewArrProdMatch)
         //Seteo el estado sobre el Array de Productos Encontrados  --> que es el que se va a renderizar
         setArrayProductosEncontrados(NewArrProdMatch)
@@ -93,12 +94,17 @@ const Products = () => {
             // console.log ((arrProd.length))
             // setArrayProductos(arrProd)
 
+            // alert("aca antes pasaba algo")
             //Es el arreglo original de todos los productos disponibles
-            setArrayProductos(json.data.data)
-            console.log("Ahora muestro el arreglo del Estado arrayProductos: ")
-            console.log(arrayProductos)
+            // setArrayProductos(json.data.data);
+            console.log("Ahora muestro el arreglo del Estado --> arrayProductos: ");
+            console.log(arrayProductos);
+            console.log(json.data.data);
+            setArrayProductos(json.data.data);
             //Que a esta altura es igual al que se va a renderizar
-            setArrayProductosEncontrados(arrayProductos)
+            setArrayProductosEncontrados(json.data.data)
+            console.log("FINALMENTE muestro el arreglo del Estado --> arrayProductosEncontrados: ")
+            console.log(arrayProductosEncontrados)
 
             
             // FALTA ver como lo meto en el estado 
@@ -321,7 +327,7 @@ const Products = () => {
                 
                 <div className="Prd__Conteiner_Busqueda">
                     <label for="CadenaBusqueda">Busqueda: </label>
-                        <input id = "CadenaBusqueda" className="Prd__InputBusquda" onChange={handleCadenaBusquedaChange} placeholder="Ingrese un producto o cadena a buscar" autoFocus enabled/>
+                        <input id = "CadenaBusqueda" className="Prd__InputBusquda" value={cadenaBusqueda} onChange={handleCadenaBusquedaChange} placeholder="Ingrese un producto o cadena a buscar" autoFocus enabled/>
                 </div>
 
                 {/* <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div--> */}
@@ -331,7 +337,7 @@ const Products = () => {
                         <ul id='products-container'>
                             {/* {alert("PASO POR ACA")} */}
                             {console.log("ACA VA EL arrProd")}
-                            {console.log("Longitud del ESTADO arrayProductos: --> " + arrayProductos.length)}
+                            {console.log("Longitud del ESTADO arrayProductosEncontrados: --> " + arrayProductosEncontrados.length)}
                             {/* Mapeo los productos en 1 card para cada uno */}
                             {arrayProductosEncontrados.map( ( p , i)  => 
                                
