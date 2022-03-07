@@ -15,15 +15,31 @@ import imgDelivery1 from '../../Imagenes/Delivery1.jpg';
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css'; //el estilo en cascada para que funcionen los componentes
 
-import {useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import Toast from '../../components/Toast/Toast'  //Componente para usar un Toast arriba a la derecha
 
  // SE MUESTRAN 3 VECES 
 //  alert ("¡¡ Bienvenido a 'Kiwi Tiendas' !! \n Usted podrá: \n1- Iniciar sesión.\n2- Registrarse. \n3- Comprar (Sección 'Productos' - requerie inicio de sesiòn). \n4- Agregar productos nuevos a la tienda (desde 'Sección Productos'). \n5- La tienda conservará el carrito con su posible compra para cada usuario mientras no cierren el navegador, pudiendo navegar por el sitio e incluso cambiar de usuario sin perder el mismo. \n** Este aviso esta puesto para que pueda ser evaluada toda la funcionalidad");
 
 const Home = () => {
 
+    //Defino estados necesarios
+    const [requiereAviso, setRequiereAviso]  = useState(false);
+    const [mensajeAviso, setMensajeAviso] = useState('HOLA');
+
     useEffect(() => {
+        //Por ahora meto alert con la funcionalidad a evaluar, luego metere una especie de Toast
         alert ("¡¡ Bienvenido a 'Kiwi Tiendas' !! \n Usted podrá: \n1- Iniciar sesión.\n2- Registrarse (Crear una cuenta). \n3- Comprar (requerie tener cuenta e inicio de sesión). \n4- La tienda conservará el carrito con su posible compra para cada usuario mientras no cierren el navegador, pudiendo navegar por el sitio e incluso cambiar de usuario sin perder el mismo. \n** Este aviso esta puesto para que pueda ser evaluada toda la funcionalidad");
+        
+        // setMensajeAviso("¡¡ Bienvenido a 'Kiwi Tiendas' !! \n Usted podrá: \n1- Iniciar sesión.\n2- Registrarse (Crear una cuenta). \n3- Comprar (requerie tener cuenta e inicio de sesión). \n4- La tienda conservará el carrito con su posible compra para cada usuario mientras no cierren el navegador, pudiendo navegar por el sitio e incluso cambiar de usuario sin perder el mismo. \n** Este aviso esta puesto para que pueda ser evaluada toda la funcionalidad")
+       
+        // setMensajeAviso("¡¡ Bienvenido a 'Kiwi Tiendas' !!" +
+        //         " Usted podrá: 1- Iniciar sesión. 2- Registrarse (Crear una cuenta). 3- Comprar (requerie tener cuenta e inicio de sesión). 4- La tienda conservará el carrito con su posible compra para cada usuario mientras no cierren el navegador, pudiendo navegar por el sitio e incluso cambiar de usuario sin perder el mismo. ** Este aviso esta puesto para que pueda ser evaluada toda la funcionalidad")
+
+        setMensajeAviso("holas: mensaje cortito de aviso de error a ver como se ve")
+       
+        // setRequiereAviso(true)
+        // alert (mensajeAviso + ", el mensaje de aviso fue seteado a " + mensajeAviso + " y estado requiereAviso esta en " + requiereAviso + ".")
 
     }, []); 
     // con el ", [])": --> se va a ejecutar 1 sola vez al principio
@@ -33,6 +49,10 @@ const Home = () => {
     return (
         // ** Devuelve 1 solo DIV ---------------------------------------------------------------
         <div className= "DivHome">
+
+            {requiereAviso &&  <Toast  message={mensajeAviso}/>}
+
+
             <div className="Portada" id="Inicio">
                 <div className="portada-opacidad"></div>
                 {/* <h1 className="TituloPortada1" >¡¡Kiwi tu mejor helado!!</h1>  */}

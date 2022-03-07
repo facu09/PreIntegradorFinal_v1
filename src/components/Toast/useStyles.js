@@ -1,6 +1,6 @@
 const useStyles = () => {
     return {
-        container: 'toast-conteiner',
+        container: 'toast-container',
         body: 'toast-body',
         text: 'toast-text'
     }

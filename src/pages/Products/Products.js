@@ -17,7 +17,9 @@ const Products = () => {
     const navigate = useNavigate();
 
     //Defino estados necesarios
-    const [arrayProductos, setArrayProductos]  = useState([]);
+    const [arrayProductos, setArrayProductos]  = useState([]); //Siempre va a conservar todos los productos disponibles
+    //El que se va a renderizar es el arrayProductosEncontrados
+    const [arrayProductosEncontrados, setArrayProductosEncontrados]  = useState([]);
     const [arrayCarrito, setArrayCarrito]  = useState([]);
     const [totalCarrito, setTotalCarrito] = useState(0);
     const [cantTotArticulos, setCantTotArticulos] = useState(0);
@@ -44,7 +46,14 @@ const Products = () => {
     // }
 
     const handleCadenaBusquedaChange = (e) => {
+        console.log(e.target.value);
         setCadenaBusqueda(e.target.value);
+        let NewArrProdMatch = []
+        //Filtro sobre el Arreglos original de todos los productos disponibles
+        NewArrProdMatch = arrayProductos.filter((valor) => valor.name.toUpperCase().includes (e.target.value.toUpperCase() ));
+        console.log(NewArrProdMatch)
+        //Seteo el estado sobre el Array de Productos Encontrados  --> que es el que se va a renderizar
+        setArrayProductosEncontrados(NewArrProdMatch)
     } 
 
     // Procedimiento: Recupera los Productos del BackEnd
@@ -83,9 +92,13 @@ const Products = () => {
             // console.log (arrProd)
             // console.log ((arrProd.length))
             // setArrayProductos(arrProd)
+
+            //Es el arreglo original de todos los productos disponibles
             setArrayProductos(json.data.data)
             console.log("Ahora muestro el arreglo del Estado arrayProductos: ")
             console.log(arrayProductos)
+            //Que a esta altura es igual al que se va a renderizar
+            setArrayProductosEncontrados(arrayProductos)
 
             
             // FALTA ver como lo meto en el estado 
@@ -281,6 +294,7 @@ const Products = () => {
     }
 
     //Precondición siempre que entra a este componente hay un usuario logueado con Token activo.
+    //    Cosa que se valida en el NavBar.js (sino tiene Token, usuario logueado lo patea al loguin)
     useEffect(() => {
          //recupero valores del storage primero
         lsEmail = localStorage.getItem('emailUsuario');
@@ -307,7 +321,7 @@ const Products = () => {
                 
                 <div className="Prd__Conteiner_Busqueda">
                     <label for="CadenaBusqueda">Busqueda: </label>
-                        <input id = "CadenaBusqueda" className="Prd__InputBusquda" onChange={handleCadenaBusquedaChange} placeholder="Ingrese un producto o cadena a buscar" autoFocus disabled/>
+                        <input id = "CadenaBusqueda" className="Prd__InputBusquda" onChange={handleCadenaBusquedaChange} placeholder="Ingrese un producto o cadena a buscar" autoFocus enabled/>
                 </div>
 
                 {/* <!-- Debio ser un form pero como el action aun no se JS: no funciona los botones para volver: entonces pongo un div--> */}
@@ -319,17 +333,20 @@ const Products = () => {
                             {console.log("ACA VA EL arrProd")}
                             {console.log("Longitud del ESTADO arrayProductos: --> " + arrayProductos.length)}
                             {/* Mapeo los productos en 1 card para cada uno */}
-                            {arrayProductos.map( ( p, i)  => 
-                            <li key={i}>
-                                <div>
-                                    {/* <img src="./assets/img/squirtle.png" alt="Squirtle"/> */}
-                                    <img width="80px" height="80px" src={p.photo} alt="Squirtle"/>
-                                </div>
-                                <span>{p.name}</span>
-                                <span className="Prd__Dsc">{p.description}</span>
-                                <span>$ {p.price}</span>
-                                <button className='Prd__BtnComprar' onClick={() => onClickComprar(p, p.id)} >Comprar</button>
-                            </li> 
+                            {arrayProductosEncontrados.map( ( p , i)  => 
+                               
+                                    <li key={i}>
+                                        <div>
+                                            {/* <img src="./assets/img/squirtle.png" alt="Squirtle"/> */}
+                                            <img width="80px" height="80px" src={p.photo} alt="Squirtle"/>
+                                        </div>
+                                        <span>{p.name}</span>
+                                        <span className="Prd__Dsc">{p.description}</span>
+                                        <span>$ {p.price}</span>
+                                        <button className='Prd__BtnComprar' onClick={() => onClickComprar(p, p.id)} >Comprar</button>
+                                    </li> 
+                              
+                            
                             )}
                             {/* FIN Mapeo los productos en 1 card para cada uno */}
                         </ul>
